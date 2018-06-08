@@ -4,6 +4,7 @@ SEOTitle: 陶宏博客 | Blog of Tao
 header-img: img/post-bg-desk.jpg
 email: taohong_max@outlook.com
 description: "Every failure is leading towards success."
+
 keyword: "TH, Blog Tao, 陶宏的博客, taohong, 陶宏, iOS, Apple, iPhone"
 url: "https://taohongmaxwell.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
@@ -12,18 +13,18 @@ github_repo: "https://github.com/TaohongMaxwell/TaohongMaxwell.github.io" # you 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/about-TH.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
-weibo_username:    北大西洋寒流
-zhihu_username:     TaohongMax
-github_username:    TaohongMaxwell
-facebook_username:  TaohongMax
-jianshu_username:   false
-twitter_username:   TaohongMax
+weibo_username:    TaohongMax
+zhihu_username:    TaohongMax
+github_username:   TaohongMaxwell
+facebook_username: TaohongMax
+jianshu_username:  false
+twitter_username:  TaohongMax
 
 
 

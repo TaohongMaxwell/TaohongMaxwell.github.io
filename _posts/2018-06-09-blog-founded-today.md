@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      今日博客上线
-subtitle:   今日，我筹划 多年（划掉）的博客终于上线了……
+subtitle:   我筹划 多年（划掉）的博客终于上线了……
 date:       2018-06-09
 author:     Taohong
 header-img: img/post-bg-android.jpg

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      为博客添加 Gitalk 评论插件
-subtitle:   BY Blog 添加 Gitalk 的评论插件了
+subtitle:   你们可以评论了
 date:       2017-12-19
 author:     BY
 header-img: img/post-bg-universe.jpg
@@ -64,7 +64,7 @@ Gitalk 是一个利用 Github API,基于 Github issue 和 Preact 开发的评论
 		owner: 'Github 用户名',
 		admin: ['Github 用户名'],
 		id: '页面的唯一标识，gitalk会根据这个标识自动创建的issue的标签',
-    
+
     });
     gitalk.render('gitalk-container');
 </script>

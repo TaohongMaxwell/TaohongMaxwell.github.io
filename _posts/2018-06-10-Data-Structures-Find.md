@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      数据结构——查找
+title:      数据结构——查找的学习（作业）日志
 subtitle:   论查找，还是手动比较快……
 date:       2018-06-10
 author:     Li qin

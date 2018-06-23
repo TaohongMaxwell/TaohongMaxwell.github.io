@@ -4,7 +4,7 @@ title:      游走在通信、电子和互联网之间
 subtitle:   Hello world有四种写法…
 date:       2018-06-13
 author:     Tao Hong
-header-img: img/post-bg-swift2.jpg
+header-img: img/guet/lib_far.jpg
 catalog: true
 tags:
     - 瞎扯

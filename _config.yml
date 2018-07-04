@@ -100,6 +100,9 @@ service-worker: true
 # Friends
 friends: [
     {
+        title: "Tao",
+        href: "https://taohongmaxwell.github.io/"
+    },{
         title: "BY",
         href: "http://qiubaiying.top/"
     },{

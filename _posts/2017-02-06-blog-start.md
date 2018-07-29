@@ -10,16 +10,19 @@ tags:
     - Blog
 ---
 
-> **原作者：BY** <br/>
+> **原作者：BY**   
 > **著作权归原作者所有**
+
+---
 
 > 正所谓前人栽树，后人乘凉。
 >
 > 感谢[Huxpro](https://github.com/huxpro)提供的博客模板
 >
-> [作者BY的博客](http://qiubaiying.top)
+> 作者BY的[ 博客](http://qiubaiying.top)
 
 # 前言
+
 从 Jekyll 到 GitHub Pages 中间踩了许多坑，终于把我的个人博客 [BY Blog](http://qiubaiying.top) 搭建出来了。。。
 
 本教程针对的是不懂技术又想搭建个人博客的小白，操作简单暴力且快速。当然懂技术那就更好了。
@@ -111,8 +114,8 @@ tags:
 很复杂看不懂是不是，不要紧，你只要记住其中几个OK了
 
 - `_config.yml` 全局配置文件
-- `_posts`	放置博客文章的文件夹
-- `img`	存放图片的文件夹
+	 `_posts`	放置博客文章的文件夹
+	 `img`	存放图片的文件夹
 
 其他的想继续深究可以[看这里](http://jekyll.com.cn/docs/structure/)
 

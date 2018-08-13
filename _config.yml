@@ -100,11 +100,11 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "Tao",
-        href: "https://taohongmaxwell.github.io/"
-    },{
         title: "BY",
         href: "http://qiubaiying.top/"
+    },{
+        title: "TaohongMaxwell",
+        href: "https://taohongmaxwell.github.io/"
     },{
         title: "Sardinefish",
         href: "http://www.sardinefish.com/"
@@ -118,7 +118,7 @@ friends: [
         title: "If 404",
         href: "https://taohongmaxwell.github.io/404/"
     },{
-        title: "Stories",
-        href: "http://htmlpreview.github.io/?https://github.com/TaohongMaxwell/SimpleLove/blob/master/simple.html"
+        title: "Yu Chunmei",
+        href: "https://yuchunmei.github.io/"
     }
 ]

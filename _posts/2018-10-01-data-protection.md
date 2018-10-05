@@ -4,7 +4,7 @@ title:      个人层面上的数据安全
 subtitle:   我的硬盘被格式化了三次你信吗？？？
 date:       2018-10-01
 author:     Tao Hong
-header-img: img/imgix-391813-unsplash.jpg
+header-img: img/data-security/imgix-391813-unsplash.jpg
 catalog: true
 tags:
     - 数据结构

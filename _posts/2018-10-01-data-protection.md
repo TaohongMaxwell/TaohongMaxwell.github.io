@@ -115,6 +115,8 @@ tags:
 
 ## 「微软大法好！」
 
+![](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/data-security/OneDrive.png)
+
 > OneDrive 可通过你的设备提供本机桌面、浏览器和移动体验。访问更改或作出更改，这些更改会在云中自动同步，或同步文件的本地副本以便在电脑或 Mac 上脱机查看和编辑。自信分享文件，以便他人能够无缝安全访问访问文件。
 
 对于 Windows 平台而言，微软 Office 服务中的 OneDrive 也是一个十分优秀并且友好的云存储服务，我从 2011 年就开始使用了，那时候还叫 SkyDrive，到现在已经用了7年多，最初上传的文件如今还在里面保存着。

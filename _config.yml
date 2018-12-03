@@ -13,7 +13,11 @@ github_repo: "https://github.com/TaohongMaxwell/TaohongMaxwell.github.io" # you 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "四年以后，银杏成海，<br/>你的意义，我终于明白."
+<<<<<<< HEAD
 sidebar-avatar: /img/about-TH2.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+=======
+sidebar-avatar: /img/about-TH1.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+>>>>>>> parent of 386ed2c... Update _config.yml
 
 
 

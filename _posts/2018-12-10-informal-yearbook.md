@@ -103,9 +103,9 @@ tags:
 
 算法和创造其实是两回事儿。**算法**可以用 `C`/`C++`/`Java`/`PHP` 等语言实现，而 `HTML`/`CSS` 等超文本标记语言以及其衍生产品却只能……看着办……
 
-![](http://carlcheo.com/wp-content/uploads/2014/12/which-programming-language-should-i-learn-first-infographic.png)
+[![](http://carlcheo.com/wp-content/uploads/2014/12/which-programming-language-should-i-learn-first-infographic.png)](http://carlcheo.com/wp-content/uploads/2014/12/which-programming-language-should-i-learn-first-infographic.png)
 
-> 图源 Carlcheo网站， [点击访问](http://carlcheo.com/startcoding).
+> 图源 Carlcheo网站，点击图片查看大图，[点击此处访问网站](http://carlcheo.com/startcoding).
 
 另外，我还会继续尝试暑假期间开始的 ACM 训练，将还没刷完的算法题目全部刷一遍。别拦着我，我可是要去打ACM 的人！
 
@@ -123,4 +123,28 @@ tags:
 
 # 做自己荣耀的骑士
 
+> 单枪匹马与世界对饮
+>
+> 历经磨难亦不忘初心
+>
+> 做自己荣耀的骑士
+>
+> 勇敢追逐梦想的红日
+>
+> ​		——《荣耀》余枫
+
+余枫是演唱的《荣耀》是我非常喜欢的一首歌曲。
+
+不知道各位有没有一种孤独的感觉，谋事在人，成事在天。这种感觉到了我读大学的时候就尤为强烈。
+
+到了大学，前进的方向突然变得多了起来，高中那种什么事情都能往高考方向靠拢的感觉一下子灰飞烟灭。
+
+### 想飞 就用心地去飞 谁不经历狼狈
+
+### 泪 就让它往下坠 溅起伤口的美
+
+### 单枪匹马与世界对饮
+
 当年小小的梦想，现在才重新拾起，唉。
+
+### 做自己荣耀的骑士

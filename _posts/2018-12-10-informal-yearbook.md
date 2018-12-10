@@ -4,14 +4,14 @@ title:      算是年终总结的一份总结
 subtitle:   鬼知道这三个月我经历了什么
 date:       2018-12-10
 author:     Tao Hong
-header-img: img/wallpapers/fog-over-the-forest.jpg
+header-img: img/wallpapers/fog over the forest.jpg
 catalog: true
 tags:
     - 瞎扯
     - Blog
 ---
 
-### 算是年终总结的一份小结
+# 算是年终总结的一份小结
 
 时隔三个月，我终于回来了。消失了这么长时间，总得找个时间出来刷刷存在感，不然各位还真的以为我放弃了微信和博客。
 
@@ -23,7 +23,7 @@ tags:
 - 毅然决定往后只做一名自由开发者
 - 来说说这几个月我的感受
 
-### 这两个月干了什么
+# 这两个月干了什么
 
 主要是**工作**，然后是**学习**，还成功地挂了一科**数学课**。
 
@@ -55,8 +55,7 @@ tags:
 
 其实我特别崇拜 GitHub 的那几位创始人，如今的很多开源软件也能做得比闭源软件要优秀，这在微软称霸的那个年代里是不可理喻的。我理解的技术开发，就像 GitHub 的那几位大佬说的一样：
 
-> # Built for developers
->
+> **Built for developers**<br/>
 > Get started for free — join the millions of developers already using GitHub to share their code, work together, and build amazing things.
 
 #### 学院新媒体中心团队的管理
@@ -71,7 +70,7 @@ tags:
 
 学有余力这一个词，用来形容我，曾经还是可行的，可现在我只想做好一个学生的本职工作，将其他的事情暂时搁置。因为敢于追求真我，所以我裸辞了，不怕别人怎样云云。我自己给自己发的工资都比学院发的要有价值，哪怕到最后遍体鳞伤，至少那是我自己沿着自己的路径探索之后的结果。我要做自己荣耀的骑士，勇敢追逐梦想的红日。
 
-### 发展的计划
+# 发展的计划
 
 #### 开发
 

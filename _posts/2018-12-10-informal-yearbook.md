@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      算是年终总结的一份总结
+title:      算是年终总结的一份小结
 subtitle:   鬼知道这三个月我经历了什么
 date:       2018-12-10
 author:     Tao Hong

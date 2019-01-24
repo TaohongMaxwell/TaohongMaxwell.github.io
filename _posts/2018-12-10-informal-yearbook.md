@@ -40,7 +40,7 @@ tags:
 
 那时候，大概是前任技术部长看了我编程方面的一些小的作品，以及我对互联网开发的一些拙见，就有意向推荐我当部长。我答应了，毕竟技术开发是我向往的领域。也正是那个时候，我们的老大也有意向让我负责微信后台的开发工作，进一步发展学院的公众号。通过后来的工作我发现，此举实则是希望推荐我作为学院新媒体中心的下一任管理者。
 
-![kjl](858323A24A52427F949D18F6FBFBC995)
+![kjl](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/guet/kjl.jpg)
 
 > 图片源自公众号“青春桂电”，著作权归原作者所有
 
@@ -56,7 +56,7 @@ tags:
 
 关于「微信开发组」，此组织负责人暂且挂职于我，因为此组织是我计划为「微信开发部」的成立而奠基的。已知的情况是，目前学院还没有的个人和组织有能力负责微信公众平台后台方面的开发工作。
 
-![hdzx](B7BFD5F810864CAFADC993FB9AFAE979)
+![hdzx](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/guet/hdzx.jpg)
 
 > 图片源自公众号“青春桂电”,著作权归原作者所有
 
@@ -73,7 +73,7 @@ tags:
 我特别崇拜 GitHub 的那几位创始人，如今的很多开源软件也能做得比闭源软件要优秀，这在微软称霸的那个年代里是不可理喻的。我理解的技术开发，就像 GitHub 的那几位大佬说的一样：
 
 > **Built for developers**
-> 
+>
 > Get started for free — join the millions of developers already using GitHub to share their code, work together, and build amazing things.
 
 #### 学院新媒体中心团队管理
@@ -88,7 +88,7 @@ tags:
 
 学有余力这一个词，用来形容我，曾经还是可行的，可现在我只想做好一个学生的本职工作，将其他的事情暂时搁置。因为敢于追求真我，所以我裸辞了，不怕别人怎样云云。我自己给自己发的工资都比学院发的要有价值，哪怕到最后遍体鳞伤，至少那是我自己沿着自己的路径探索之后的结果。
 
-![yx](6B3D171785D4467094E839765438207D)
+![yx](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/univs/yx.jpg)
 
 > 图片源自电子科技大学官方微博，著作权归原作者所有
 
@@ -113,7 +113,7 @@ tags:
 
 在一开始，我就热爱 C/C++编程。2018 年四月份我用 C++ 写了一个小的程序的记录我和我女朋友相恋时长的项目。[点击访问 GitHub项目](https://github.com/TaohongMaxwell/Date-of-us-by-C)
 
-算法和创造其实是两回事儿。**算法**可以用 `C`/`C++`/`Java`/`PHP` 等语言实现，而 `HTML`/`CSS` 等超文本标记语言以及其衍生产品却只能……看着办……
+算法和创造其实是两回事儿。**算法** 可以用 `C`/`C++`/`Java`/`PHP` 等语言实现，而 `HTML`/`CSS` 等超文本标记语言以及其衍生产品却只能……看着办……
 
 [![](http://carlcheo.com/wp-content/uploads/2014/12/which-programming-language-should-i-learn-first-infographic.png)](http://carlcheo.com/wp-content/uploads/2014/12/which-programming-language-should-i-learn-first-infographic.png)
 

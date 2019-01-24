@@ -89,3 +89,6 @@ tags:
 可能未来的某一天，我会购买一个全球互联网服务，按照工作或者学习的需要进行信息检索。必应一路走好，我们下个路口见。
 
 最后用一句话进行总结：谷歌是一个很棒的互联网巨头，而百度不是。
+
+![](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/chuangxin/google_in_mac.jpg)
+> Photo by Agnieszka Boeske on Unsplash

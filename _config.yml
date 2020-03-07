@@ -33,9 +33,9 @@ twitter_username:  TaohongMax
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 permalink: pretty
-paginate: 9
+paginate: 9     # Number of each page's articles
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+anchorjs: true  # if you want to customize anchor. check out line:181 of `post.html`
 
 
 
@@ -99,21 +99,13 @@ service-worker: true
 
 
 # Friends
-friends: [
+friends: 
+[
     {
         title: "BY",
         href: "http://qiubaiying.top/"
     },{
         title: "Sardinefish",
         href: "http://www.sardinefish.com/"
-    },{
-        title: "Qin",
-        href: "http://www.cnblogs.com/1795759388-/"
-    },{
-        title: "中国青年网",
-        href: "http://www.youth.cn/"
-    },{
-        title: "中国大学生在线",
-        href: "http://www.univs.cn/"
     }
 ]

@@ -101,8 +101,8 @@ service-worker: true
 # Friends
 friends: [
     {
-      title: "BY Blog",
-      href: "http://qiubaiying.vip/"
+        title: "BY Blog",
+        href: "http://qiubaiying.vip/"
     },{
         title: "Sardinefish",
         href: "http://www.sardinefish.com/"
@@ -113,7 +113,7 @@ friends: [
         title: "HarmonyOS Developer",
         href: "https://developer.harmonyos.com/cn/home"
     },{
-      title: "CAS",
-      href: "http://www.cas.cn/"
+        title: "CAS",
+        href: "http://www.cas.cn/"
     }
 ]

@@ -98,7 +98,7 @@ service-worker: true
 
 
 
-# Friends，行前的缩进是固定的，更改缩进会导致网站无法访问
+# Friends，行前的缩进是固定的，且必须是space而不能是tab，更改缩进会导致网站无法访问
 friends: [
     {
         title: "BY Blog",

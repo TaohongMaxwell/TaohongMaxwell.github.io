@@ -101,13 +101,19 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "BY",
-        href: "http://qiubaiying.top/"
+      title: "BY Blog",
+      href: "http://qiubaiying.vip/"
     },{
         title: "Sardinefish",
         href: "http://www.sardinefish.com/"
     },{
-        title: "Zhihui Peng",
+        title: "Zhihui PENG",
         href: "http://pengzhihui.xyz/"
+    }.{
+        title: "HarmonyOS Developer",
+        href: "https://developer.harmonyos.com/cn/home"
+    },{
+      title: "CAS",
+      href: "http://www.cas.cn/"
     }
 ]

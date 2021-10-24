@@ -99,7 +99,7 @@ service-worker: true
 
 
 # Friends，行前的缩进是固定的，且必须是space而不能是tab，更改缩进会导致网站无法访问
-friends:  [
+friends: [
     {
         title: "BY Blog",
         href: "http://qiubaiying.vip/"

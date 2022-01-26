@@ -5,7 +5,7 @@ header-img: img/wallpapers/forest.jpg
 email: taohong_max@outlook.com
 description: "Every failure is leading towards success."
 
-keyword: "TH, Blog Tao, 陶宏的博客, taohong，tao hong, 陶宏,"
+keyword: "TH, Blog Tao, 陶宏的博客, taohong, tao hong, 陶宏"
 url: "https://taohongmaxwell.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/TaohongMaxwell/TaohongMaxwell.github.io" # you code repository

@@ -116,7 +116,10 @@ friends: [
         title: "HarmonyOS Developer",
         href: "https://developer.harmonyos.com/cn/home/"
     },{
-        title: "Chinese Academy of Sciences",
+        title: "科学院CAS",
         href: "http://www.cas.cn/"
+    },{
+        title: "工程院CAE",
+        href: "https://www.cae.cn/"
     }
 ]

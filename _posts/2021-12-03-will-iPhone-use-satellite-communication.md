@@ -3,7 +3,7 @@ layout:     post
 title:      确认了新iPhone不能打卫星电话后，各路运营商长舒了口气
 date:       2021-12-03
 author:     Tao Hong
-header-img: img/iPhone-use-satellite-communication/06.iPhone13.jpg
+header-img: img/iPhone-use-satellite-communication/01.iPhone.jpg
 catalog: true
 tags:
     - 瞎扯
@@ -174,20 +174,13 @@ All right，让我们的大胆假设一下：此时iPhone的产品经理突然�
 
 ---
 
-# **参考资料：**
+# 参考资料
 
 [1] iPhone 13卫星通信只提供应急功能_手机新闻-中关村在线(zol.com.cn)
-
 [2] iPhone 13卫星通信细节曝光_手机新闻-中关村在线(zol.com.cn)
-
-[3] iPhone 13能打卫星电话？事情没有那么简单|爱范儿(ifanr.com)
-
-[4] iPhone 13系列卫星通讯功能或仅面向部分市场_TechWeb
-
+[3] iPhone 13能打卫星电话？事情没有那么简单-爱范儿(ifanr.com)
+[4] iPhone 13系列卫星通讯功能或仅面向部分市场-TechWeb
 [5] 彭博社：苹果iPhone 13/Pro系列仅会在少数市场支持卫星通信-IT之家(ithome.com)
-
-[6] iPhone 13能直接卫星通信？美媒：没那么神奇，只是提供应急功能新浪科技新浪网(sina.com.cn)
-
+[6] iPhone 13能直接卫星通信？美媒：没那么神奇，只是提供应急功能-新浪科技新浪网(sina.com.cn)
 [7] 高成发，胡伍生. 卫星导航定位原理与应用，北京：人民交通出版社，2011．
-
 [8] 樊昌信，曹丽娜. 通信原理，北京：国防工业出版社，2012.

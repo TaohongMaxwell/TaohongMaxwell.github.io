@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      后疫情时代，如何把抵御风险能力拉高？保险规划提上日程
+title:      后疫情时代，如何提高抵御风险能力？保险规划提上日程
 date:       2022-12-27
 author:     Tao Hong
 header-img: img/home-bg-o.jpg

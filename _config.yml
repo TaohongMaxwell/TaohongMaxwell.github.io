@@ -13,7 +13,7 @@ github_repo: "https://github.com/TaohongMaxwell/TaohongMaxwell.github.io" # you 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "爱你所爱，行你所行，无问西东"
-sidebar-avatar: /img/BiliGirl.jpg       # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/茜特菈莉_square.jpg       # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 

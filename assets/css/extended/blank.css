@@ -1,0 +1,87 @@
+/* 设置一些自定义的样式 */
+:root {
+  --link-color: #a8e6cf;
+}
+
+.dark {
+  /* 首页的介绍处的链接 */
+  .entry-content {
+    a {
+      color: var(--link-color);
+    }
+  }
+  /* 文章(post)中的链接 */
+  .post-content {
+    a {
+      color: var(--link-color);
+    }
+  }
+
+  /* 这里要重启 server 才能看到效果 */
+  .pagination a {
+    background: rgb(168, 168, 242);
+  }
+}
+
+.pagination a {
+  background: rgb(80, 104, 81);
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.post-content pre,
+code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.toc details[open] summary {
+  cursor: pointer;
+}
+
+.toc details summary {
+  cursor: pointer;
+}
+
+/* 评论的样式自定义 */
+#tw-comment {
+  margin-top: 3rem;
+}
+
+/* medium-zoom 图片放大后的背景样式 */
+.medium-zoom-overlay {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+.dark {
+  .medium-zoom-overlay {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+.win11 {
+  .medium-zoom-image {
+    cursor: url(../../static/cursors/zoom-in.svg), default !important;
+  }
+  .medium-zoom--opened .medium-zoom-overlay {
+    cursor: url(../../static/cursors/zoom-out.svg), default !important;
+  }
+  .medium-zoom-image--opened {
+    cursor: url(../../static/cursors/zoom-out.svg), default !important;
+  }
+}
+
+/* 去掉文章页面底部的上一页和下一页中链接文字的下划线，这东西浏览器审查元素捕捉不到，不知道为啥 */
+.paginav span:hover:not(.title) {
+  box-shadow: none;
+}
+/* 下一页的那里的内边距调节 */
+.paginav {
+  a {
+    padding-bottom: 0.5em;
+  }
+}

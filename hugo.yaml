@@ -1,0 +1,153 @@
+# ~~~~~~~~~
+# Hugo 本身的配置
+# ~~~~~~~~~
+baseURL: "https://TaohongMaxwell.github.io/" # 主站的 URL
+title: Hong's Site # 站点标题
+copyright: "[©2026 TaohongMaxwell](https://TaohongMaxwell.github.io/)" # 网站的版权声明，通常显示在页脚
+theme: PaperMod # 主题
+languageCode: zh-cn # 语言
+
+enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 markdown 的时候便捷地插入，官方文档中有一个视频讲的很通俗
+hasCJKLanguage: true # 是否有 CJK 的字符
+enableRobotsTXT: true # 允许生成 robots.txt
+buildDrafts: false # 构建时是否包括草稿
+buildFuture: false # 构建未来发布的内容
+buildExpired: false # 构建过期的内容
+enableEmoji: true # 允许 emoji
+pygmentsUseClasses: true
+defaultContentLanguage: zh # 顶部首先展示的语言界面
+defaultContentLanguageInSubdir: false # 是否要在地址栏加上默认的语言代码
+
+languages:
+  zh:
+    languageName: "zh-ch" # 展示的语言名
+    weight: 1 # 权重
+    taxonomies: # 分类系统
+      category: categories
+      tag: tags
+    # https://gohugo.io/content-management/menus/#define-in-site-configuration
+    menus:
+      main:
+        # - name: 首页
+        #   pageRef: /
+        #   weight: 1 # 控制在页面上展示的前后顺序
+      - name: About/关于
+        pageRef: about/
+        weight: 2
+      - name: Archives/归档
+        pageRef: archives/
+        weight: 3
+      - name: Categories/分类
+        pageRef: categories/
+        weight: 4
+      - name: Tags/标签
+        pageRef: tags/
+        weight: 5
+      - name: Search/搜索
+        pageRef: search/
+        weight: 6
+
+# ~~~~~~~~~
+# 主题的配置(基本上是)
+# ~~~~~~~~~
+pagination:
+  pagerSize: 10 # 每页展示的文章数量，这个没找到文档，应该是主题自己设置的
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  author: Hong Tao # 作者名字
+  defaultTheme: auto # 默认背景
+  ShowShareButtons: false # 关闭分享的按钮
+  ShowReadingTime: true # 展示预估的阅读时长
+  displayFullLangName: true # 展示全名
+  ShowPostNavLinks: true # 展示文章导航链接，就是下一页上一页的那个
+  ShowBreadCrumbs: false # 是否展示标题上方的面包屑
+  ShowCodeCopyButtons: true # 是否展示复制代码的按钮
+  ShowRssButtonInSectionTermList: true # RSS 相关
+  ShowAllPagesInArchive: true # 在归档页面展示所有的页面
+  ShowPageNums: true # 展示页面的页数
+  ShowToc: true # 展示文章详情页的目录
+  comments: true # 评论
+  images: ["/img/home-bg-o.jpg"] # 缺省的图片，比如，博客的封面
+  DateFormat: "2006-01-02" # 这个时间是作者自己写的，只能这样写
+
+  # 首页的文章上方的一些信息
+  profileMode:
+    enabled: true
+    # 首页的 profile 内容
+    Title: "Welcome to Hong's Site!"
+    subtitle: "Journey to breakthrough"
+    imageUrl: "/avatar/skk_square.jpg" # optional
+    imageTitle: "Welcome to Hong's Site!" # optional
+    imageWidth: 120 # custom size
+    imageHeight: 120 # custom size
+
+  # 社交帐号的按钮
+  socialIcons:
+    - name: github
+      title: Follow my Github
+      url: "https://github.com/TaohongMaxwell"
+    - name: X
+      title: Follow my Twitter
+      url: "https://x.com/TaohongMax"
+    - name: Bilibili
+      title: Follow my Bilibili
+      url: "https://space.bilibili.com/160479145"
+
+  # 搜索
+  fuseOpts:
+      isCaseSensitive: false # 是否大小写敏感
+      shouldSort: true # 是否排序
+      location: 0
+      distance: 1000
+      threshold: 0.4
+      minMatchCharLength: 0
+      # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+      keys: ["title", "permalink", "summary", "content"]
+      includeMatches: true
+  # 设置网站的标签页的图标，即 favicon
+  assets:
+      favicon: "favicon.ico"
+      favicon16x16: "favicon.ico"
+      favicon32x32: "favicon.ico"
+      apple_touch_icon: "favicon.ico"
+      safari_pinned_tab: "favicon.ico"
+      disableHLJS: true
+
+  # 评论的设置
+  giscus:
+    repo: "TaohongMaxwell/TaohongMaxwell.github.io"
+    repoId: "MDEwOlJlcG9zaXRvcnkxMzY1NzcxMjQ="
+    category: "Announcements"
+    categoryId: "DIC_kwDOMed_Fs4ChXJF"
+    mapping: "pathname"
+    strict: "0"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "bottom"
+    lightTheme: "light"
+    darkTheme: "dark"
+    lang: "zh-CN"
+    crossorigin: "anonymous"
+
+# https://github.com/adityatelange/hugo-PaperMod/wiki/Features#search-page
+outputs:
+  home:
+    - HTML # 生成的静态页面
+    # - RSS # 这个其实无所谓
+    - JSON # necessary for search, 这里的配置修改好之后，一定要重新生成一下
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # 可以 unsafe，有些 html 标签和样式可能需要
+  highlight:
+    anchorLineNos: false # 不要给行号设置锚标
+    codeFences: true # 代码围栏
+    noClasses: false # TODO: 不知道干啥的，暂时没必要了解，不影响展示
+    lineNos: true # 代码行
+    lineNumbersInTable: false # 不要设置成 true，否则如果文章开头是代码的话，摘要会由一大堆数字(即代码行号)开头文章
+    # 这里设置 style 没用，得自己加 css
+    # style: "github-dark"
+    # style: monokai

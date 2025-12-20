@@ -79,9 +79,9 @@ params:
   profileMode:
     enabled: true
     # 首页的 profile 内容
-    Title: "Welcome to Hong's Site!"
-    subtitle: "Journey to breakthrough"
-    imageUrl: "/avatar/skk_square.jpg" # optional
+    Title: "Time and Wind"
+    subtitle: "Follow the wind's guidance, and hear the wind sing."
+    imageUrl: "/avatar/Venti-2.jpg" # optional
     imageTitle: "Welcome to Hong's Site!" # optional
     imageWidth: 120 # custom size
     imageHeight: 120 # custom size

@@ -10,6 +10,8 @@ summary: Friends online
 - [Sardinefish](https://www.sardinefish.com/about/) - Developer (HUST -> Tencent)
 - [DrawRain](https://www.drawrain.com/) - Null
 
+<br/>
+
 ## People
 
 - [Lilian Weng](https://lilianweng.github.io/) - Agent = LLM + Planning + Memory + Tools

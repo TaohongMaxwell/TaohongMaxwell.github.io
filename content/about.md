@@ -1,14 +1,24 @@
 ---
-title: "关于"
+title: "About"
 layout: "about"
 url: "/about/"
 summary: about
 ---
 
-<div>
-Hi，我是 Hong Tao，2017级电子科学与技术专业学生，毕业于 桂林电子科技大学 信息与通信学院电子科学与技术系（电磁场与微波技术），工作、学习之余编程，偶尔写作。
+Hi，我是 **Hong Tao**，2017级电子科学与技术专业学生，毕业于 [桂林电子科技大学](http://www.guet.edu.cn/) 信息与通信学院电子科学与技术系（电磁场与微波技术），工作、学习之余编程，偶尔写作。
+
 <br/>
-设计研发工程师，摸鱼划水老行家，通信领域段子手，微波射频大废材。
-<br/>
+
 在广州饮茶，曾经任职于中科院某科研院所、某知名知识产权代理所，现于某外企任电子工程师。
-</div>
+
+<br/>
+
+同时我还有微信公众号，欢迎关注：`TaohongMaxwell`
+
+![wechat-qrcode](/qrcode/wechat-qrcode.jpg)
+
+<br/>
+
+Friends：
+
+- [sardinefish](https://www.sardinefish.com/about/)

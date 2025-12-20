@@ -31,19 +31,19 @@ languages:
         # - name: 首页
         #   pageRef: /
         #   weight: 1 # 控制在页面上展示的前后顺序
-      - name: About/关于
+      - name: About
         pageRef: about/
         weight: 2
-      - name: Archives/归档
+      - name: Archives
         pageRef: archives/
         weight: 3
-      - name: Categories/分类
+      - name: Categories
         pageRef: categories/
         weight: 4
-      - name: Tags/标签
+      - name: Tags
         pageRef: tags/
         weight: 5
-      - name: Search/搜索
+      - name: Search
         pageRef: search/
         weight: 6
 
@@ -91,9 +91,18 @@ params:
     - name: X
       title: Follow my Twitter
       url: "https://x.com/TaohongMax"
+    - name: linkedin
+      title: Follow my LinkedIn
+      url: "https://www.linkedin.com/in/TaohongMax/"
     - name: Bilibili
       title: Follow my Bilibili
       url: "https://space.bilibili.com/160479145"
+    - name: email
+      title: Send me an Email
+      url: "mailto:taohong_max@outlook.com"
+    - name: xiaohongshu
+      title: Follow my Xiaohongshu
+      url: "https://www.xiaohongshu.com/user/profile/5a771989e8ac2b45d35b8e2d"
 
   # 搜索
   fuseOpts:

@@ -100,7 +100,7 @@ params:
     - name: email
       title: Send me an Email
       url: "mailto:taohong_max@outlook.com"
-    - name: xiaohongshu
+    - name: Xiaohongshu
       title: Follow my Xiaohongshu
       url: "https://www.xiaohongshu.com/user/profile/5a771989e8ac2b45d35b8e2d"
 

@@ -18,7 +18,3 @@ Hi，我是 **Hong Tao**，2017级电子科学与技术专业学生，毕业于 
 ![wechat-qrcode](/qrcode/wechat-qrcode.jpg)
 
 <br/>
-
-Friends：
-
-- [sardinefish](https://www.sardinefish.com/about/)

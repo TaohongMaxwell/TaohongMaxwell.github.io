@@ -40,12 +40,15 @@ languages:
       - name: Categories
         pageRef: categories/
         weight: 4
-      - name: Tags
-        pageRef: tags/
-        weight: 5
       - name: Search
         pageRef: search/
+        weight: 5
+      - name: Tags
+        pageRef: tags/
         weight: 6
+      - name: Webrings
+        pageRef: webrings/
+        weight: 7
 
 # ~~~~~~~~~
 # 主题的配置(基本上是)

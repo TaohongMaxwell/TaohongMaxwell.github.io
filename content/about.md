@@ -5,16 +5,34 @@ url: "/about/"
 summary: about
 ---
 
-Hi，我是 **Hong Tao**，2017级电子科学与技术专业学生，毕业于 [桂林电子科技大学](http://www.guet.edu.cn/) 信息与通信学院电子科学与技术系（电磁场与微波技术），工作、学习之余编程，偶尔写作。
+I'm **Hong Tao**, an electronics engineer from [GUET](https://www.guet.edu.cn/) (MW&RF). I code in my spare time and occasionally write. I'm from Guilin(Kweilin, KWL) and currently based in Guangzhou(Canton,CAN).
 
 <br/>
 
-在广州饮茶，曾经任职于中科院某科研院所、某知名知识产权代理所，现于某外企任电子工程师。
+I previously completed internships at an institute under the Chinese Academy of Sciences (CAS) and a well-known intellectual property agency. I now work as an electronics engineer at a multinational company.
 
 <br/>
 
-同时我还有微信公众号，欢迎关注：`TaohongMaxwell`
+I have experience in intellectual property and am the primary inventor on three computer software-related patents.
 
-![wechat-qrcode](/qrcode/wechat-qrcode.jpg)
+<br/>
+
+I also work with electromagnetic simulation, with a focus on advancing digital simulation research in the life sciences (BioEM).
+
+<br/>
+
+On the scripting and software development side, I've found that large language models (LLMs) have significantly boosted my productivity.
+
+<br/>
+
+In China, you can also reach me through the following:
+
+- BiliBili - [小陶每天三顿饭](https://space.bilibili.com/160479145)
+- Genshin Impact (Chinese server)- `29xxxxx42`
+- WeChat Official Accounts - `TaohongMaxwell`
+
+<br/>
+
+![wechat-qrcode](/qrcode/wechat-qrcode-search.jpg)
 
 <br/>

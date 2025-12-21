@@ -1,6 +1,8 @@
 /* 设置一些自定义的样式 */
 :root {
-  --link-color: #a8e6cf;
+  --link-color: #10b981; /* 深邃蓝色 */
+  /*--link-color: #60a5fa; /* 深邃蓝色 */
+  /*--link-color: #10b981; /* 翠绿色 */
 }
 
 .dark {

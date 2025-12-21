@@ -17,6 +17,7 @@ enableEmoji: true # 允许 emoji
 pygmentsUseClasses: true
 defaultContentLanguage: zh # 顶部首先展示的语言界面
 defaultContentLanguageInSubdir: false # 是否要在地址栏加上默认的语言代码
+metaDataFormat: yaml  # 元数据格式使用YAML格式
 
 languages:
   zh:

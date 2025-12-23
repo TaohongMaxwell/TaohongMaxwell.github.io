@@ -33,6 +33,6 @@ In China, you can also reach me through the following:
 
 <br/>
 
-![wechat-qrcode](/qrcode/wechat-qrcode-search.jpg)
+![wechat-qrcode](/qrcode/wechat-qrcode-search.png)
 
 <br/>

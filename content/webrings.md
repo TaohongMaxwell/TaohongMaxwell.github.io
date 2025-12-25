@@ -7,7 +7,7 @@ summary: Friends online
 
 ## Friends
 
-- [Sardinefish](https://www.sardinefish.com/about/) - Developer (HUST -> Tencent)
+- [Sardinefish](https://www.sardinefish.com/) - Developer (HUST -> Tencent)
 - [DrawRain](https://www.drawrain.com/) - Null
 
 <br/>

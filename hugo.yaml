@@ -129,20 +129,20 @@ params:
       disableHLJS: true
 
   # 评论的设置
-  giscus:
-    repo: "TaohongMaxwell/TaohongMaxwell.github.io"
-    repoId: "MDEwOlJlcG9zaXRvcnkxMzY1NzcxMjQ="
-    category: "Announcements"
-    categoryId: "DIC_kwDOCCQAZM4Cz91E"
-    mapping: "pathname"
-    strict: "0"
-    reactionsEnabled: "1"
-    emitMetadata: "0"
-    inputPosition: "bottom"
-    lightTheme: "light"
-    darkTheme: "dark"
-    lang: "zh-CN"
-    crossorigin: "anonymous"
+  # giscus:
+  #   repo: "TaohongMaxwell/TaohongMaxwell.github.io"
+  #   repoId: "MDEwOlJlcG9zaXRvcnkxMzY1NzcxMjQ="
+  #   category: "Announcements"
+  #   categoryId: "DIC_kwDOCCQAZM4Cz91E"
+  #   mapping: "pathname"
+  #   strict: "0"
+  #   reactionsEnabled: "1"
+  #   emitMetadata: "0"
+  #   inputPosition: "bottom"
+  #   lightTheme: "light"
+  #   darkTheme: "dark"
+  #   lang: "zh-CN"
+  #   crossorigin: "anonymous"
 
 # https://github.com/adityatelange/hugo-PaperMod/wiki/Features#search-page
 outputs:

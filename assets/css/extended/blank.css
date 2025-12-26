@@ -37,9 +37,17 @@ body {
 
 .post-content pre,
 code {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 1rem;
-  line-height: 1.2;
+  font-family: 
+      /* Windows */
+      "Cascadia Code", "Consolas", "Courier New",
+      /* Mac */
+      "SF Mono", "Monaco", "Menlo", 
+      /* Linux */
+      "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono",
+      /* 通用回退 */
+      monospace;
+  font-size: 0.9em; /* 代码字体通常稍小 */
+  line-height: 1.5;  /* 代码行高建议1.4-1.6 */
 }
 
 .toc details[open] summary {

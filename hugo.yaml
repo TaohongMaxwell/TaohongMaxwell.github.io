@@ -72,7 +72,7 @@ params:
   ShowAllPagesInArchive: true # 在归档页面展示所有的页面
   ShowPageNums: true # 展示页面的页数
   ShowToc: true # 展示文章详情页的目录
-  comments: true # 评论
+  comments: false # 评论
   images: ["/img/home-bg-o.jpg"] # 缺省的图片，比如，博客的封面
   DateFormat: "2006-01-02" # 这个时间是作者自己写的，只能这样写
 

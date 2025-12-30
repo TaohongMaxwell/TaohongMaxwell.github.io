@@ -35,4 +35,6 @@ In China, you can also reach me through the following:
 
 ![wechat-qrcode](/qrcode/wechat-qrcode-search.png)
 
-<br/>
+<br/><br/>
+
+P.S. All technical content on this site represents personal opinions, and accuracy is not guaranteed. Some information may become outdated over time. Readers are advised to verify independently.

@@ -8,13 +8,13 @@
 .dark {
   /* 首页的介绍处的链接 */
   .entry-content {
-    a {
+    .main a {
       color: var(--link-color);
     }
   }
   /* 文章(post)中的链接 */
   .post-content {
-    a {
+    .main a {
       color: var(--link-color);
     }
   }

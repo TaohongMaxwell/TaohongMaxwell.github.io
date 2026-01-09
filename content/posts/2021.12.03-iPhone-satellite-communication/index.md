@@ -1,13 +1,17 @@
 ---
-layout:     post
-title:      确认了新iPhone不能打卫星电话后，各路运营商长舒了口气
-date:       2021-12-03
-author:     Tao Hong
-header-img: img/iPhone-use-satellite-communication/01.iPhone.jpg
-catalog: true
+date: 2021-12-03
+draft: false
+title: 确认了新iPhone不能打卫星电话后，各路运营商长舒了口气
+cover:
+  image: "06.iPhone13.jp"
+  alt: ""
+  caption: ""
+  relative: ture
+  hidden: false
+  catalog: true
+categories:
+    - 闲聊
 tags:
-    - 瞎扯
-    - Blog
     - 通信
 ---
 
@@ -21,7 +25,7 @@ tags:
 
 **本文共3655字，阅读时间大约为10分钟。**
 
-![iPhone](static\article-img\2021.12.03-iPhone-satellite-communication\01.iPhone.jpg)
+![iPhone](01.iPhone.jpg)
 
 > 买了iPhone 13系列的小伙伴们，你们或许没听说过这档子事。
 
@@ -61,7 +65,7 @@ tags:
 
 以苹果的性格，利用卫星发送回来的信号，以 **提供更加精准的定位功能从而改进地图服务** ，倒是更加可能会成为支持该功能后的iPhone的优点。
 
-![全球卫星网络示意图](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/iPhone-use-satellite-communication/02.satellite network.jpg)
+![全球卫星网络示意图](./02.satellite-network.png)
 
 > 全球卫星网络示意图
 
@@ -91,7 +95,7 @@ All right，让我们的大胆假设一下：此时iPhone的产品经理突然�
 
 **苹果首先要解决的是天线问题。** 由于通信频段与地面蜂窝网络不同，卫星电话往往有一根超长的天线。iPhone若真敢用上卫星通信技术来打电话，其外观必定要回到功能手机时代。否则的话，手机根本收不到卫星发来的信号，打卫星电话也无从谈起了。
 
-![卫星电话示意图](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/iPhone-use-satellite-communication/03.satellite telephone.jpg)
+![卫星电话示意图](./03.satellite-telephone.jpg)
 
 > 市面上的卫星电话，其外观宛若智能手机穿越回到了十年前
 
@@ -113,7 +117,7 @@ All right，让我们的大胆假设一下：此时iPhone的产品经理突然�
 
 无论是用低轨道卫星（LEO）或是同步轨道卫星（GEO）作卫星通话的中转设备，都必须要求在无遮挡的空旷区域上使用。因为在室内、树下、楼宇之间手机很难接收到卫星信号，甚至连过厚的云层都会影响信号传输。
 
-![卫星通信示意图](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/iPhone-use-satellite-communication/04.satellite communications.jpg)
+![卫星通信示意图](./04.satellite-communications.png)
 
 > 卫星通信时信号接收示意图
 
@@ -147,7 +151,7 @@ All right，让我们的大胆假设一下：此时iPhone的产品经理突然�
 
 **科技的进步不应该仅表现在颠覆以往，而更应该表现在对生命的关怀。**
 
-![沙漠](https://github.com/TaohongMaxwell/TaohongMaxwell.github.io/raw/master/img/iPhone-use-satellite-communication/05.desert.jpg)
+![沙漠](./05.desert.jpg)
 
 > 卫星通信功能并不会取代现有通信网络，而只是提供应急功能。比如在荒郊野外或缺乏WiFi和移动信号的环境下，用户可以用有限的卫星通信功能报警求助。
 
@@ -160,7 +164,7 @@ All right，让我们的大胆假设一下：此时iPhone的产品经理突然�
 
 目前尚不知道运营商对此类传闻的态度。但是据估计，卫星通信功能应该未触及运营商核心利益，运营商短期内不太有可能会对此有太大意见。（吧？）
 
-![iPhone13](2021-12-03-will-iPhone-use-satellite-communication.assets/06.iPhone13.jpg)
+![iPhone13](./06.iPhone13.jpg)
 
 > 要是下一代iPhone支持卫星通信了，你会不会购买？（下次一定）
 

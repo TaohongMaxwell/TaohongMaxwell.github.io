@@ -41,11 +41,11 @@ languages:
       - name: Categories
         pageRef: categories/
         weight: 4
-      - name: Search
-        pageRef: search/
-        weight: 5
       - name: Tags
         pageRef: tags/
+        weight: 5
+      - name: Search
+        pageRef: search/
         weight: 6
       - name: Webrings
         pageRef: webrings/

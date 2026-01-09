@@ -1,5 +1,5 @@
 ---
-date: 2025-08-06T00:00:00+08:00
+date: 2025-08-06
 draft: false
 title: "CST Leaning Edition: Introduction and Installation"
 cover:

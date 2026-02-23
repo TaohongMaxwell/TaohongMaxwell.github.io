@@ -1,7 +1,7 @@
 ---
-title: "Webrings"
+title: "Links"
 layout: "about"
-url: "/webrings/"
+url: "/links/"
 summary: Friends online
 ---
 

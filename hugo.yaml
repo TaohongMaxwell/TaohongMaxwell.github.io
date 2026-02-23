@@ -34,6 +34,9 @@ languages:
         #   weight: 1 # 控制在页面上展示的前后顺序
       - name: About
         pageRef: about/
+        weight: 1
+      - name: Academic
+        pageRef: academic/
         weight: 2
       - name: Archives
         pageRef: archives/
@@ -47,8 +50,8 @@ languages:
       - name: Search
         pageRef: search/
         weight: 6
-      - name: Webrings
-        pageRef: webrings/
+      - name: Links
+        pageRef: links/
         weight: 7
 
 # ~~~~~~~~~
@@ -92,6 +95,9 @@ params:
     - name: github
       title: Follow my Github
       url: "https://github.com/TaohongMaxwell"
+    - name: gitea
+      title: Follow my Gitea
+      url: "https://gitea.com/taohong"
     - name: X
       title: Follow my Twitter
       url: "https://x.com/TaohongMax"
@@ -104,7 +110,7 @@ params:
     - name: email
       title: Send me an Email
       url: "mailto:taohong_max@outlook.com"
-    - name: Xiaohongshu
+    - name: xiaohongshu
       title: Follow my Xiaohongshu
       url: "https://www.xiaohongshu.com/user/profile/5a771989e8ac2b45d35b8e2d"
 

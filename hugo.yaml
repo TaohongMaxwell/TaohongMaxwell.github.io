@@ -50,9 +50,12 @@ languages:
       - name: Search
         pageRef: search/
         weight: 6
+      - name: Skills
+        pageRef: skills/
+        weight: 7
       - name: Links
         pageRef: links/
-        weight: 7
+        weight: 8
 
 # ~~~~~~~~~
 # 主题的配置(基本上是)

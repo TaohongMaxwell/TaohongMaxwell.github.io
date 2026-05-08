@@ -51,7 +51,7 @@ languages:
         pageRef: search/
         weight: 6
       - name: Skills
-        pageRef: skills/
+        pageRef: skills-page/
         weight: 7
       - name: Links
         pageRef: links/

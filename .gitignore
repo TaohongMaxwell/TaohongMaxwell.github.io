@@ -26,3 +26,6 @@ _testmain.go
 .DS_Store
 .hugo_build.lock
 resources/_gen/
+
+# AI agent reference docs (local only, not for GitHub)
+_docs/

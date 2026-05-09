@@ -15,4 +15,5 @@ summary: Skills and tools
 
 ## Recommended
 
+- [Wiki Compiler](https://github.com/zhangpelf/wiki-compiler) - 纯血学术级 Agent 知识编排引擎（复刻 Andrej Karpathy 的 LLM 知识库理念）
 - [Khazix Skills](https://github.com/KKKKhazix/khazix-skills) - 一套实用的 Agent Skills 合集

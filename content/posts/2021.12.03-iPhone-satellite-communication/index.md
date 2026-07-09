@@ -6,7 +6,7 @@ cover:
   image: "06.iPhone13.jpg"
   alt: ""
   caption: ""
-  relative: ture
+  relative: true
   hidden: false
   catalog: true
 categories:

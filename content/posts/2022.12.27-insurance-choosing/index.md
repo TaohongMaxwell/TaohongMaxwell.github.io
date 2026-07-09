@@ -6,7 +6,7 @@ cover:
   image: ""
   alt: ""
   caption: ""
-  relative: ture
+  relative: true
   hidden: false
   catalog: true
 categories:

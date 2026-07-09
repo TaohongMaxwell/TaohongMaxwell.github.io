@@ -6,7 +6,7 @@ cover:
   image: "mac.jpg"
   alt: ""
   caption: ""
-  relative: ture
+  relative: true
   hidden: false
 categories:
   - IT

@@ -6,7 +6,7 @@ cover:
   image: "image.png"
   alt: "Img of CST LE"
   caption: "CST Leaning Edition"
-  relative: ture
+  relative: true
   hidden: false
 categories:
   - EM Simulation

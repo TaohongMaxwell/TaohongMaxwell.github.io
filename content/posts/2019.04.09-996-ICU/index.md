@@ -8,7 +8,6 @@ cover:
   caption: ""
   relative: true
   hidden: false
-  catalog: true
 categories:
     - 闲聊
 tags:

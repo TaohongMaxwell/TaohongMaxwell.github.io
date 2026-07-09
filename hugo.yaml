@@ -65,7 +65,7 @@ pagination:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  description: "Hong Tao's personal site — engineer, entrepreneur, and community organizer."
   author: Hong Tao # 作者名字
   defaultTheme: auto # 默认背景
   ShowShareButtons: false # 关闭分享的按钮

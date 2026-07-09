@@ -10,8 +10,6 @@ summary: Academic information
 
 - Familiar with the transformation of IP, authorized a total of 5 invention patents in Pre-Processing (3 for the first inventor).
 
-<br/>
-
 ## Education
 
 - Guilin University of Electronic Technology (GUET)
@@ -21,8 +19,6 @@ summary: Academic information
 - GUET 2018 EE Design Competition Undergraduate Group (3rd Prize, 2018)
 - GUET Orange Dream EE Design Competition (3rd Prize, 2019)
 - Guangxi Province 9th Translation Competition (3rd prize, 2017)
-
-<br/>
 
 ## Work
 
@@ -37,8 +33,6 @@ Simulation Engineer (and team leader of GZ_dev) in R&D department
 
 - **Pousen (Dassault Systèmes Platinum Agency in China)**:
 Experienced EM Simulation Engineer
-
-<br/>
 
 ## Posts
 

@@ -23,18 +23,12 @@ Guangzhou city host of [OPC Peer Society](https://www.opc.community/china) (OPC 
 
 Founder of 桂林板路学社, a Guilin-based AI learning community — "rediscover Guilin through AI." Also initiated [桂音 (KWL-Dialect)](https://github.com/banlu-voice-lab), an open-source TTS project dedicated to preserving Guilin dialects.
 
-<br/>
-
 In China, you can also reach me through the following:
 
 - BiliBili - [小陶每天三顿饭](https://space.bilibili.com/160479145)
 - Genshin Impact (Chinese server)- `29xxxxx42`
 - WeChat Official Accounts - `TaohongMaxwell`
 
-<br/>
-
 ![wechat-qrcode](/qrcode/wechat-qrcode-search.png)
-
-<br/><br/>
 
 P.S. All technical content on this site represents personal opinions, and accuracy is not guaranteed. Some information may become outdated over time. Readers are advised to verify independently.

@@ -3,7 +3,7 @@ date: 2021-12-03
 draft: false
 title: 确认了新iPhone不能打卫星电话后，各路运营商长舒了口气
 cover:
-  image: "06.iPhone13.jp"
+  image: "06.iPhone13.jpg"
   alt: ""
   caption: ""
   relative: ture

@@ -2,7 +2,7 @@
 title: "Academic"
 layout: "about"
 url: "/academic/"
-summary: Academic imformation
+summary: Academic information
 ---
 ## Profile
 

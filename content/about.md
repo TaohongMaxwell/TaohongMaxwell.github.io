@@ -5,23 +5,23 @@ url: "/about/"
 summary: about
 ---
 
-I'm **Hong Tao**, an electronics engineer from [GUET](https://www.guet.edu.cn/) (MW&RF). I code in my spare time and occasionally write. I'm from Guilin(Kweilin, KWL) and currently based in Guangzhou(Canton,CAN).
+I'm **Hong Tao**, from Guilin (Kweilin, KWL) and currently based in Guangzhou (Canton, CAN).
 
-<br/>
+## Engineer
 
-I previously completed internships at an institute under the Chinese Academy of Sciences (CAS) and a well-known intellectual property agency. I now work as an electronics engineer at a multinational company.
+Electronics engineer (MW&RF) at a multinational company, focusing on electromagnetic simulation with an interest in advancing digital simulation research in the life sciences (BioEM). Previously interned at an institute under CAS and at a well-known IP agency. Primary inventor on 5 invention patents in preprocessing techniques. [GUET](https://www.guet.edu.cn/) EE Bachelor.
 
-<br/>
+## Entrepreneur
 
-I have experience in intellectual property and am the primary inventor on three computer software-related patents.
+Running OPC — a one-person company built around AI workflows, electromagnetic simulation consulting, and patent services. First product: a CST solver selection decision-support tool. Ship products, not hours.
 
-<br/>
+## Community Organizer
 
-I also work with electromagnetic simulation, with a focus on advancing digital simulation research in the life sciences (BioEM).
+Guangzhou city host of [OPC Peer Society](https://www.opc.community/china) (OPC 同行社), organizing offline events and community operations for fellow one-person entrepreneurs.
 
-<br/>
+## Dialect Preservation
 
-On the scripting and software development side, I've found that large language models (LLMs) have significantly boosted my productivity.
+Founder of 桂林板路学社, a Guilin-based AI learning community — "rediscover Guilin through AI." Also initiated [桂音 (KWL-Dialect)](https://github.com/banlu-voice-lab), an open-source TTS project dedicated to preserving Guilin dialects.
 
 <br/>
 

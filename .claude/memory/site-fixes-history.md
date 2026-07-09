@@ -7,7 +7,7 @@ metadata:
 
 ## 2026-07-09 全站审计与修复
 
-### 🔴 已修复（12 项，8 个 commit）
+### 🔴 已修复（17 项，14 个 commit）
 
 1. `content/posts/2021.12.03-iPhone-satellite-communication/index.md:6` — `cover.image: "06.iPhone13.jp"` → `.jpg`（1 字符拼写，Linux/GitHub Pages 大小写敏感 → 404）
 2. `content/posts/2024.08.04-build-a-blog-...md:6-11` — 删除独立 post 的无效 cover 块（image.png 不存在，og:image 404）
@@ -18,6 +18,14 @@ metadata:
 7. `layouts/_default/about.html` `<section>` → `<div class="post-content">` + 删除 broken `<style>` 块 + 删除 `<br>` → 修复 about/academic/skills-page/links 四个页面的排版间距
 8. 清理 about/academic/skills-page/links.md 中所有 `<br/>` 手动间距（CSS 修复后变双重间距）
 9. `layouts/partials/svg.html` 新建——加入小红书 icon（PaperMod 不含此 icon，只渲染通用链接图标）
+10. `content/about.md` — OPC Peer Society → OPC Community（核实 opc.community 官网 Schema）
+11. `hugo.yaml:68` — `params.description` 从 PaperMod 默认值改为站点描述（SEO 摘要）
+12. `layouts/partials/svg.html:333` — 修复 `strock`→`stroke` 拼写（从 PaperMod 上游继承的 typo，git icon 缺描边）
+13. `layouts/partials/svg.html:999` — `else if $icon_name`→`else`（空 icon 名无兜底）
+14. 3 篇 post frontmatter — 删除 `catalog: true`（PaperMod 不读此字段，死配置）
+15. `hugo.yaml:20` — 删除弃用的 `metaDataFormat: yaml`（Hugo 0.158+，自 v0.55 起默认 YAML）
+16. `layouts/partials/comments.html` — `.Site.Params` → `site.Params`（Hugo 0.100+ 全局函数，不依赖 Page 上下文）
+17. 第二轮 code-review 审计——5 角度 finder + 3 交叉验证 + 1 sweep，筛出并修复上述 #10-16
 
 ### 🟡 已知未修
 

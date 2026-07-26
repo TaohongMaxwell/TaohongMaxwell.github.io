@@ -32,3 +32,7 @@ _docs/
 
 # Local planning documents
 网站改造方案*.md
+
+# Playwright MCP debug artifacts
+.playwright-mcp/
+travel-page-preview.png

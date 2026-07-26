@@ -29,3 +29,6 @@ resources/_gen/
 
 # AI agent reference docs (local only, not for GitHub)
 _docs/
+
+# Local planning documents
+网站改造方案*.md

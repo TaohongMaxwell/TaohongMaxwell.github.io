@@ -1,3 +1,11 @@
+{{ if eq .Params.layout "travel" }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ $travelMap := resources.Get "js/travel-map.js" | minify | fingerprint }}
+<script src="{{ $travelMap.RelPermalink }}" integrity="{{ $travelMap.Data.Integrity }}" defer></script>
+{{ $travelGallery := resources.Get "js/travel-gallery.js" | minify | fingerprint }}
+<script src="{{ $travelGallery.RelPermalink }}" integrity="{{ $travelGallery.Data.Integrity }}" defer></script>
+{{ end }}
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" -->
 <!--   integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S+Yti0U7QtuZvQ==" -->
 <!--   crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->

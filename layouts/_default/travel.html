@@ -1,0 +1,81 @@
+{{ define "main" }}
+<div class="travel-page">
+  {{- $tickets := hugo.Data.tickets.tickets -}}
+
+  <!-- Journey Map -->
+  <section class="travel-map-section">
+    <h2>Journey Map</h2>
+    <div id="travel-map"></div>
+    <div class="map-legend">
+      <label>
+        <input type="checkbox" id="legend-flight" checked>
+        <span class="legend-dot" style="background:#3b82f6;"></span> ✈ Flights
+      </label>
+      <label>
+        <input type="checkbox" id="legend-train" checked>
+        <span class="legend-dot" style="background:#10b981;"></span> 🚄 Trains
+      </label>
+    </div>
+  </section>
+
+  <!-- Ticket Gallery -->
+  <section class="travel-gallery-section">
+    <h2>Ticket Gallery</h2>
+    <div class="gallery-filters">
+      <button class="gallery-filter-btn active" data-filter="all">All</button>
+      <button class="gallery-filter-btn" data-filter="flight">✈ Flights</button>
+      <button class="gallery-filter-btn" data-filter="train">🚄 Trains</button>
+    </div>
+    <div class="gallery-grid">
+      {{ range $index, $ticket := $tickets }}
+      <div class="ticket-card"
+           data-id="{{ $ticket.id }}"
+           data-type="{{ $ticket.type }}"
+           data-index="{{ $index }}"
+           data-departure-lat="{{ $ticket.departure.lat }}"
+           data-departure-lng="{{ $ticket.departure.lng }}"
+           data-arrival-lat="{{ $ticket.arrival.lat }}"
+           data-arrival-lng="{{ $ticket.arrival.lng }}"
+           {{ with $ticket.routeColor }}data-route-color="{{ . }}"{{ end }}>
+        <div class="ticket-card-header {{ $ticket.type }}">
+          <span class="ticket-icon">{{ if eq $ticket.type "flight" }}✈{{ else }}🚄{{ end }}</span>
+          <span class="ticket-type">{{ if eq $ticket.type "flight" }}Flight{{ else }}Train{{ end }}</span>
+        </div>
+        <div class="ticket-card-body">
+          <div class="ticket-route">
+            <span class="ticket-city-from">{{ $ticket.departure.city }}</span>
+            <span class="ticket-arrow">→</span>
+            <span class="ticket-city-to">{{ $ticket.arrival.city }}</span>
+          </div>
+          <div class="ticket-info">
+            <span class="ticket-date">{{ $ticket.date }}</span>
+            <span class="ticket-number">{{ $ticket.number }}</span>
+          </div>
+          <div class="ticket-times">
+            <span>{{ $ticket.departure.time }}</span>
+            <span class="time-sep">→</span>
+            <span>{{ $ticket.arrival.time }}</span>
+          </div>
+          <div class="ticket-details">
+            <span>{{ $ticket.class }}</span>
+            {{ with $ticket.seat }}<span> · {{ . }}</span>{{ end }}
+            {{ with $ticket.price }}<span> · ¥{{ . }}</span>{{ end }}
+          </div>
+          {{ with $ticket.notes }}
+          <div class="ticket-notes">{{ . }}</div>
+          {{ end }}
+        </div>
+        {{ with $ticket.image }}
+        <div class="ticket-card-image">
+          <img src="{{ . | relURL }}" alt="{{ $ticket.number }}" loading="lazy">
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Data injection -->
+  <script id="ticket-data" type="application/json">{{ $tickets | jsonify | safeJS }}</script>
+</div>
+{{ end }}

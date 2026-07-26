@@ -1,0 +1,242 @@
+/* ========================================
+   旅行票根页面样式
+   ======================================== */
+
+/* 地图区域 */
+.travel-map-section {
+  margin-bottom: var(--content-gap, 24px);
+}
+
+#travel-map {
+  width: 100%;
+  height: 50vh;
+  min-height: 320px;
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border);
+  z-index: 1;
+}
+
+.map-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.map-legend label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.map-legend label:hover {
+  opacity: 1;
+}
+
+.map-legend input[type="checkbox"] {
+  accent-color: var(--link-color, #10b981);
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* 画册区域 */
+.travel-gallery-section {
+  margin-top: var(--content-gap, 24px);
+}
+
+.gallery-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.gallery-filter-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gallery-filter-btn:hover {
+  border-color: var(--link-color, #10b981);
+  color: var(--link-color, #10b981);
+}
+
+.gallery-filter-btn.active {
+  background: var(--link-color, #10b981);
+  border-color: var(--link-color, #10b981);
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* 票根卡片 */
+.ticket-card {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 8px);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.ticket-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-card.highlight {
+  border-color: var(--link-color, #10b981);
+  box-shadow: 0 0 0 2px var(--link-color, #10b981);
+}
+
+.ticket-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.ticket-card-header.flight {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.ticket-card-header.train {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.ticket-card-header .ticket-icon {
+  font-size: 1rem;
+}
+
+.ticket-card-body {
+  padding: 14px 16px;
+}
+
+.ticket-route {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ticket-arrow {
+  color: var(--link-color, #10b981);
+  font-size: 0.9rem;
+}
+
+.ticket-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin-bottom: 6px;
+}
+
+.ticket-number {
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.ticket-times {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin-bottom: 6px;
+}
+
+.ticket-times .time-sep {
+  margin: 0 6px;
+  color: var(--tertiary);
+}
+
+.ticket-details {
+  font-size: 0.8rem;
+  color: var(--tertiary);
+  margin-bottom: 6px;
+}
+
+.ticket-notes {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  font-style: italic;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+}
+
+.ticket-card-image {
+  width: 100%;
+  border-top: 1px solid var(--border);
+}
+
+.ticket-card-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 180px;
+}
+
+/* Leaflet tooltip 定制 */
+.travel-tooltip {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 4px 0;
+}
+
+.travel-tooltip strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  #travel-map {
+    height: 40vh;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #travel-map {
+    height: 35vh;
+    min-height: 200px;
+  }
+
+  .ticket-route {
+    font-size: 1rem;
+  }
+}

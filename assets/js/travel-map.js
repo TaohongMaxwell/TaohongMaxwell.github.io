@@ -1,0 +1,218 @@
+/**
+ * 旅行票根 — 地图模块
+ * 使用 Leaflet 渲染旅程航线图，包括飞行大圆航线弧线和火车铁路路径
+ */
+(function () {
+  'use strict';
+
+  const mapEl = document.getElementById('travel-map');
+  if (!mapEl) return;
+
+  const dataScript = document.getElementById('ticket-data');
+  if (!dataScript) return;
+
+  let tickets = [];
+  try {
+    tickets = JSON.parse(dataScript.textContent);
+  } catch (e) {
+    console.error('Failed to parse ticket data:', e);
+    return;
+  }
+
+  // 轨迹折线分组存储（用于图例切换）
+  const routeGroups = { flight: [], train: [] };
+  const markerGroups = {};
+
+  // 初始化地图
+  const map = L.map('travel-map', {
+    center: [33, 113], // 中国中部
+    zoom: 5,
+    scrollWheelZoom: true,
+    attributionControl: true,
+  });
+
+  // OSM 瓦片
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19,
+  }).addTo(map);
+
+  // 可选：CartoDB 浅色底图
+  // L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  //   maxZoom: 19,
+  // }).addTo(map);
+
+  // 计算大圆航线点集（球面线性插值）
+  function getGreatCirclePoints(fromLat, fromLng, toLat, toLng, numPoints) {
+    numPoints = numPoints || 80;
+    const points = [];
+    const fromLatR = fromLat * Math.PI / 180;
+    const fromLngR = fromLng * Math.PI / 180;
+    const toLatR = toLat * Math.PI / 180;
+    const toLngR = toLng * Math.PI / 180;
+
+    // 计算角距离
+    const deltaLng = toLngR - fromLngR;
+    const cosDist = Math.sin(fromLatR) * Math.sin(toLatR) +
+      Math.cos(fromLatR) * Math.cos(toLatR) * Math.cos(deltaLng);
+    const angularDist = Math.acos(Math.min(1, Math.max(-1, cosDist)));
+
+    if (angularDist < 0.001) {
+      return [[fromLat, fromLng], [toLat, toLng]];
+    }
+
+    for (let i = 0; i <= numPoints; i++) {
+      const f = i / numPoints;
+      const a = Math.sin((1 - f) * angularDist) / Math.sin(angularDist);
+      const b = Math.sin(f * angularDist) / Math.sin(angularDist);
+
+      const x = a * Math.cos(fromLatR) * Math.cos(fromLngR) + b * Math.cos(toLatR) * Math.cos(toLngR);
+      const y = a * Math.cos(fromLatR) * Math.sin(fromLngR) + b * Math.cos(toLatR) * Math.sin(toLngR);
+      const z = a * Math.sin(fromLatR) + b * Math.sin(toLatR);
+
+      const lat = Math.atan2(z, Math.sqrt(x * x + y * y)) * 180 / Math.PI;
+      const lng = Math.atan2(y, x) * 180 / Math.PI;
+
+      points.push([lat, lng]);
+    }
+
+    return points;
+  }
+
+  // 渲染单条路线
+  function renderRoute(ticket, index) {
+    const fromLat = parseFloat(ticket.departure.lat);
+    const fromLng = parseFloat(ticket.departure.lng);
+    const toLat = parseFloat(ticket.arrival.lat);
+    const toLng = parseFloat(ticket.arrival.lng);
+    const routeColor = ticket.routeColor || (ticket.type === 'flight' ? '#3b82f6' : '#10b981');
+
+    let polylinePoints;
+
+    if (ticket.type === 'train' && ticket.route && ticket.route.length > 1) {
+      // 铁路：使用预计算的路线
+      polylinePoints = ticket.route;
+    } else {
+      // 机票 / 无铁路数据：大圆航线
+      polylinePoints = getGreatCirclePoints(fromLat, fromLng, toLat, toLng);
+    }
+
+    const polyline = L.polyline(polylinePoints, {
+      color: routeColor,
+      weight: 2.5,
+      opacity: 0.7,
+      dashArray: ticket.type === 'train' ? '8 4' : null,
+      ticketId: ticket.id,
+    }).addTo(map);
+
+    polyline.bindTooltip(
+      '<div class="travel-tooltip">' +
+      '<strong>' + ticket.departure.city + ' → ' + ticket.arrival.city + '</strong>' +
+      ticket.number + ' · ' + ticket.date +
+      '</div>',
+      { sticky: true }
+    );
+
+    polyline.on('click', function () {
+      highlightTicketCard(ticket.id);
+    });
+
+    routeGroups[ticket.type].push(polyline);
+  }
+
+  // 渲染起止点标记（合并重复城市）
+  function renderMarkers() {
+    const cityMap = {};
+
+    tickets.forEach(function (ticket) {
+      // 收集所有涉及的城市
+      const depKey = ticket.departure.lat + ',' + ticket.departure.lng;
+      const arrKey = ticket.arrival.lat + ',' + ticket.arrival.lng;
+
+      if (!cityMap[depKey]) {
+        cityMap[depKey] = { city: ticket.departure.city, lat: parseFloat(ticket.departure.lat), lng: parseFloat(ticket.departure.lng), count: 0 };
+      }
+      cityMap[depKey].count++;
+
+      if (!cityMap[arrKey]) {
+        cityMap[arrKey] = { city: ticket.arrival.city, lat: parseFloat(ticket.arrival.lat), lng: parseFloat(ticket.arrival.lng), count: 0 };
+      }
+      cityMap[arrKey].count++;
+    });
+
+    Object.values(cityMap).forEach(function (city) {
+      const size = Math.min(16, 8 + city.count * 2);
+      const marker = L.circleMarker([city.lat, city.lng], {
+        radius: size,
+        fillColor: '#10b981',
+        fillOpacity: 0.8,
+        color: '#fff',
+        weight: 2,
+      }).addTo(map);
+
+      marker.bindTooltip('<strong>' + city.city + '</strong><br>' + city.count + ' trips', { direction: 'top' });
+    });
+  }
+
+  // 画册卡片高亮
+  function highlightTicketCard(ticketId) {
+    document.querySelectorAll('.ticket-card.highlight').forEach(function (el) {
+      el.classList.remove('highlight');
+    });
+    const card = document.querySelector('.ticket-card[data-id="' + ticketId + '"]');
+    if (card) {
+      card.classList.add('highlight');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // 3 秒后自动取消高亮
+      setTimeout(function () {
+        card.classList.remove('highlight');
+      }, 3000);
+    }
+  }
+
+  // 图例切换
+  document.getElementById('legend-flight').addEventListener('change', function () {
+    routeGroups.flight.forEach(function (p) {
+      if (this.checked) {
+        map.addLayer(p);
+      } else {
+        map.removeLayer(p);
+      }
+    }, this);
+  });
+
+  document.getElementById('legend-train').addEventListener('change', function () {
+    routeGroups.train.forEach(function (p) {
+      if (this.checked) {
+        map.addLayer(p);
+      } else {
+        map.removeLayer(p);
+      }
+    }, this);
+  });
+
+  // 渲染全部票根
+  tickets.forEach(function (ticket, index) {
+    renderRoute(ticket, index);
+  });
+
+  renderMarkers();
+
+  // 自适应视野
+  if (tickets.length > 0) {
+    const allPoints = [];
+    tickets.forEach(function (t) {
+      allPoints.push([parseFloat(t.departure.lat), parseFloat(t.departure.lng)]);
+      allPoints.push([parseFloat(t.arrival.lat), parseFloat(t.arrival.lng)]);
+    });
+    const bounds = L.latLngBounds(allPoints);
+    map.fitBounds(bounds, { padding: [30, 30] });
+  }
+
+  // 暴露接口给 gallery 模块
+  window.travelMap = {
+    highlightTicket: highlightTicketCard,
+    map: map,
+  };
+})();

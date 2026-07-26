@@ -1,0 +1,108 @@
+tickets:
+  - id: "2024-01-shanghai-beijing"
+    date: "2024-01-15"
+    type: "flight"
+    operator: "中国东方航空"
+    number: "MU5101"
+    departure:
+      city: "上海"
+      station: "上海虹桥国际机场"
+      code: "SHA"
+      lat: 31.1979
+      lng: 121.3363
+      time: "08:00"
+    arrival:
+      city: "北京"
+      station: "北京首都国际机场"
+      code: "PEK"
+      lat: 40.0799
+      lng: 116.6031
+      time: "10:30"
+    class: "经济舱"
+    seat: "32A"
+    price: 1280
+    image: ""
+    notes: "出差参加技术会议"
+    route: []
+    routeColor: "#3b82f6"
+
+  - id: "2024-03-guangzhou-shenzhen"
+    date: "2024-03-22"
+    type: "train"
+    operator: "中国铁路广州局"
+    number: "G6501"
+    departure:
+      city: "广州"
+      station: "广州南站"
+      code: "IZQ"
+      lat: 22.9906
+      lng: 113.2688
+      time: "09:30"
+    arrival:
+      city: "深圳"
+      station: "深圳北站"
+      code: "SZQ"
+      lat: 22.6089
+      lng: 114.0299
+      time: "10:06"
+    class: "二等座"
+    seat: "05车12A号"
+    price: 74.5
+    image: ""
+    notes: "周末出行"
+    route: []
+    routeColor: "#10b981"
+
+  - id: "2024-06-guangzhou-shanghai"
+    date: "2024-06-10"
+    type: "flight"
+    operator: "中国南方航空"
+    number: "CZ3523"
+    departure:
+      city: "广州"
+      station: "广州白云国际机场"
+      code: "CAN"
+      lat: 23.3925
+      lng: 113.2988
+      time: "14:20"
+    arrival:
+      city: "上海"
+      station: "上海虹桥国际机场"
+      code: "SHA"
+      lat: 31.1979
+      lng: 121.3363
+      time: "16:45"
+    class: "经济舱"
+    seat: "18F"
+    price: 980
+    image: ""
+    notes: ""
+    route: []
+    routeColor: "#f59e0b"
+
+  - id: "2024-10-beijing-xian"
+    date: "2024-10-05"
+    type: "train"
+    operator: "中国铁路北京局"
+    number: "G87"
+    departure:
+      city: "北京"
+      station: "北京西站"
+      code: "BXP"
+      lat: 39.8949
+      lng: 116.3221
+      time: "07:00"
+    arrival:
+      city: "西安"
+      station: "西安北站"
+      code: "XAB"
+      lat: 34.3767
+      lng: 108.9343
+      time: "12:21"
+    class: "一等座"
+    seat: "03车08A号"
+    price: 515.5
+    image: ""
+    notes: "国庆假期旅行"
+    route: []
+    routeColor: "#8b5cf6"

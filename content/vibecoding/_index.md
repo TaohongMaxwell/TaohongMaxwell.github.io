@@ -7,5 +7,5 @@ summary: Small web pages I built for fun — pure frontend, no backend, no user 
 
 Small web pages I built for fun. Each project lives in its own folder — pure frontend, no backend, no user data collection.
 
-<!-- New projects go here: - [Project Name](/vibecoding/project-folder/) — One-sentence description -->
+- [Travel Ticket Archive](/vibecoding/travel/) — Flight & train ticket gallery with journey route map visualization
 

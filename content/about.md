@@ -17,7 +17,7 @@ Running OPC — a one-person company built around AI workflows, electromagnetic 
 
 ## Community Organizer
 
-Guangzhou city host of [OPC Community](https://www.opc.community/china) (OPC 同行社), organizing offline events and community operations for fellow one-person entrepreneurs.
+Guangzhou city host of [OPC Community](https://www.opc.community/china) (OPC 同行社), organizing offline events and community operations for fellow one-person entrepreneurs. Organized multiple OPC Guangzhou offline events around AI tool workflows and personal-professional leverage.
 
 ## Dialect Preservation
 

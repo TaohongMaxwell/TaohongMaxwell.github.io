@@ -40,21 +40,18 @@ languages:
       - name: Archives
         pageRef: archives/
         weight: 3
-      - name: Categories
-        pageRef: categories/
-        weight: 4
-      - name: Tags
-        pageRef: tags/
-        weight: 5
       - name: Search
         pageRef: search/
-        weight: 6
+        weight: 4
       - name: Skills
         pageRef: skills-page/
-        weight: 7
+        weight: 5
+      - name: VibeCoding
+        pageRef: vibecoding/
+        weight: 6
       - name: Links
         pageRef: links/
-        weight: 8
+        weight: 7
 
 # ~~~~~~~~~
 # 主题的配置(基本上是)

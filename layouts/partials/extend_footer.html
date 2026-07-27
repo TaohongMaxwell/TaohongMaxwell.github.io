@@ -1,6 +1,8 @@
 {{ if eq .Params.layout "travel" }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ $travelI18n := resources.Get "js/travel-i18n.js" | minify | fingerprint }}
+<script src="{{ $travelI18n.RelPermalink }}" integrity="{{ $travelI18n.Data.Integrity }}" defer></script>
 {{ $travelMap := resources.Get "js/travel-map.js" | minify | fingerprint }}
 <script src="{{ $travelMap.RelPermalink }}" integrity="{{ $travelMap.Data.Integrity }}" defer></script>
 {{ $travelGallery := resources.Get "js/travel-gallery.js" | minify | fingerprint }}

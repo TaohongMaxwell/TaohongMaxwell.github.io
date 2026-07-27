@@ -4,16 +4,19 @@
 
   <!-- Journey Map -->
   <section class="travel-map-section">
-    <h2>Journey Map</h2>
+    <div class="section-header">
+      <h2 data-i18n="journeyMap">Journey Map</h2>
+      <button class="lang-toggle" id="lang-toggle" title="Switch language">中</button>
+    </div>
     <div id="travel-map"></div>
     <div class="map-legend">
       <label>
         <input type="checkbox" id="legend-flight" checked>
-        <span class="legend-dot" style="background:#3b82f6;"></span> ✈ Flights
+        <span class="legend-dot" style="background:#3b82f6;"></span> <span data-i18n="flights">&#10008; Flights</span>
       </label>
       <label>
         <input type="checkbox" id="legend-train" checked>
-        <span class="legend-dot" style="background:#10b981;"></span> 🚄 Trains
+        <span class="legend-dot" style="background:#10b981;"></span> <span data-i18n="trains">&#128646; Trains</span>
       </label>
     </div>
   </section>
@@ -21,24 +24,24 @@
   <!-- Travel Stats -->
   <section class="travel-stats-section">
     <div class="stats-grid" id="travel-stats">
-      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label">Total Trips</div></div>
-      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label">Countries &amp; Regions</div></div>
-      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label">Cities</div></div>
-      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label">Distance (km)</div></div>
-      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label">Total Spent</div></div>
+      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label" data-i18n="totalTrips">Total Trips</div></div>
+      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label" data-i18n="countries">Countries &amp; Regions</div></div>
+      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label" data-i18n="cities">Cities</div></div>
+      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label" data-i18n="distance">Distance (km)</div></div>
+      <div class="stat-card"><div class="stat-value">—</div><div class="stat-label" data-i18n="totalSpent">Total Spent</div></div>
     </div>
   </section>
 
   <!-- Ticket Gallery -->
   <section class="travel-gallery-section">
-    <h2>Ticket Gallery</h2>
+    <h2 data-i18n="ticketGallery">Ticket Gallery</h2>
     <div class="gallery-filters">
-      <button class="gallery-filter-btn active" data-filter="all">All</button>
-      <button class="gallery-filter-btn" data-filter="flight">✈ Flights</button>
-      <button class="gallery-filter-btn" data-filter="train">🚄 Trains</button>
+      <button class="gallery-filter-btn active" data-filter="all"><span data-i18n="all">All</span></button>
+      <button class="gallery-filter-btn" data-filter="flight"><span data-i18n="flightsShort">&#10008; Flights</span></button>
+      <button class="gallery-filter-btn" data-filter="train"><span data-i18n="trainsShort">&#128646; Trains</span></button>
     </div>
     <div class="gallery-route-filters" id="route-filters">
-      <button class="gallery-filter-btn active" data-route="all">All Routes</button>
+      <button class="gallery-filter-btn active" data-route="all"><span data-i18n="allRoutes">All Routes</span></button>
     </div>
     <div class="gallery-grid">
       {{ range $index, $ticket := $tickets }}
@@ -53,8 +56,8 @@
            data-arrival-lng="{{ $ticket.arrival.lng }}"
            {{ with $ticket.routeColor }}data-route-color="{{ . }}"{{ end }}>
         <div class="ticket-card-header {{ $ticket.type }}">
-          <span class="ticket-icon">{{ if eq $ticket.type "flight" }}✈{{ else }}🚄{{ end }}</span>
-          <span class="ticket-type">{{ if eq $ticket.type "flight" }}Flight{{ else }}Train{{ end }}</span>
+          <span class="ticket-icon">{{ if eq $ticket.type "flight" }}&#9992;{{ else }}&#128646;{{ end }}</span>
+          <span class="ticket-type" data-i18n="{{ if eq $ticket.type "flight" }}flight{{ else }}train{{ end }}">{{ if eq $ticket.type "flight" }}Flight{{ else }}Train{{ end }}</span>
         </div>
         <div class="ticket-card-body">
           <div class="ticket-route">
@@ -78,7 +81,7 @@
           <div class="ticket-details">
             <span>{{ $ticket.class }}</span>
             {{ with $ticket.seat }}<span> · {{ . }}</span>{{ end }}
-            {{ with $ticket.price }}<span> · ¥{{ . }}</span>{{ end }}
+            {{ with $ticket.price }}<span> · &yen;{{ . }}</span>{{ end }}
           </div>
           {{ with $ticket.notes }}
           <div class="ticket-notes">{{ . }}</div>
@@ -99,7 +102,7 @@
     <div class="folder-modal" id="folder-modal">
       <div class="folder-header">
         <span id="folder-route-title"></span>
-        <button class="folder-close" id="folder-close">&times;</button>
+        <button class="folder-close" id="folder-close" data-i18n-title="close">&times;</button>
       </div>
       <div class="folder-body" id="folder-body"></div>
     </div>

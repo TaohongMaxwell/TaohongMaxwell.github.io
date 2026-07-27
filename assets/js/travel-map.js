@@ -126,7 +126,7 @@
     polyline.bindTooltip(
       '<div class="travel-tooltip">' +
       '<strong>' + ticket.departure.city + ' → ' + ticket.arrival.city + '</strong>' +
-      (freq > 1 ? freq + ' trips · ' : '') + ticket.number + ' · ' + ticket.date +
+      (freq > 1 ? freq + ' ' + (window.travelI18n ? window.travelI18n.t('trips') : 'trips') + ' · ' : '') + ticket.number + ' · ' + ticket.date +
       '</div>',
       { sticky: true }
     );
@@ -167,7 +167,8 @@
       if (city.stations.size > 0) {
         tooltip += '<br><small>' + Array.from(city.stations).join(' · ') + '</small>';
       }
-      tooltip += '<br>' + city.count + ' trips';
+      var tripLabel = window.travelI18n ? window.travelI18n.t('trips') : 'trips';
+      tooltip += '<br>' + city.count + ' ' + tripLabel;
       marker.bindTooltip(tooltip, { direction: 'top' });
     });
   }

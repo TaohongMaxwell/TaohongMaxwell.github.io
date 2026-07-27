@@ -26,6 +26,7 @@ tickets:
     price: 2850
     image: ""
     notes: "东京出差"
+    diary: "第一次踏上日本的土地，成田机场的清晨安静得让人恍惚。"
     route: []
     routeColor: "#3b82f6"
 
@@ -346,6 +347,7 @@ tickets:
     price: 515.5
     image: ""
     notes: "国庆旅行"
+    diary: "十三朝古都，兵马俑前站了很久。长安城的风吹了一千年，还是那么干燥。"
     route: []
     routeColor: "#8b5cf6"
 

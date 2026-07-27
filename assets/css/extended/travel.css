@@ -2,6 +2,13 @@
    旅行票根页面样式
    ======================================== */
 
+/* 页面底纹（供毛玻璃穿透） */
+.travel-page {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(16,185,129,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.03) 0%, transparent 50%);
+}
+
 /* 区域标题 + 语言切换 */
 .section-header {
   display: flex;
@@ -46,11 +53,12 @@
 
 #travel-map {
   width: 100%;
-  height: 50vh;
-  min-height: 320px;
+  max-width: 720px;
+  aspect-ratio: 5 / 4;
   border-radius: var(--radius, 8px);
   border: 1px solid var(--border);
   z-index: 1;
+  margin: 0 auto;
 }
 
 /* 暗色模式：反色 OSM 瓦片 */
@@ -107,11 +115,18 @@
 }
 
 .stat-card {
-  background: var(--entry);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(128, 128, 128, 0.15);
   border-radius: var(--radius, 8px);
   padding: 14px 10px;
   text-align: center;
+}
+
+[data-theme="dark"] .stat-card {
+  background: rgba(46, 46, 51, 0.75);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .stat-value {
@@ -301,11 +316,26 @@ body.folder-locked {
    ======================================== */
 
 .ticket-card {
-  background: var(--entry);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(128, 128, 128, 0.15);
   border-radius: var(--radius, 8px);
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+[data-theme="dark"] .ticket-card {
+  background: rgba(46, 46, 51, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .ticket-diary {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .ticket-card:hover {
@@ -413,6 +443,17 @@ body.folder-locked {
   border-top: 1px dashed var(--border);
 }
 
+.ticket-diary {
+  font-size: 0.8rem;
+  color: var(--primary);
+  line-height: 1.5;
+  margin-top: 6px;
+  padding: 8px 10px;
+  background: rgba(128, 128, 128, 0.06);
+  border-left: 3px solid var(--link-color, #10b981);
+  border-radius: 0 4px 4px 0;
+}
+
 .ticket-card-image {
   width: 100%;
   border-top: 1px solid var(--border);
@@ -456,7 +497,13 @@ body.folder-locked {
 
 @media (max-width: 480px) {
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .stats-grid .stat-card:nth-child(-n+3) {
+    grid-column: span 2;
+  }
+  .stats-grid .stat-card:nth-child(n+4) {
+    grid-column: span 3;
   }
 
   .gallery-grid {

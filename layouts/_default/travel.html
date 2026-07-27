@@ -86,6 +86,9 @@
           {{ with $ticket.notes }}
           <div class="ticket-notes">{{ . }}</div>
           {{ end }}
+          {{ with $ticket.diary }}
+          <div class="ticket-diary">{{ . }}</div>
+          {{ end }}
         </div>
         {{ with $ticket.image }}
         <div class="ticket-card-image">

@@ -1,4 +1,6 @@
 {{ if eq .Params.layout "travel" }}
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{ $travelI18n := resources.Get "js/travel-i18n.js" | minify | fingerprint }}

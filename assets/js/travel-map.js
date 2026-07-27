@@ -25,7 +25,7 @@
 
   // 初始化地图（静态模式：禁用所有交互）
   const map = L.map('travel-map', {
-    center: [33, 113],
+    center: [35, 105],
     zoom: 5,
     scrollWheelZoom: false,
     dragging: false,
@@ -138,39 +138,128 @@
     routeGroups[ticket.type].push(polyline);
   }
 
-  // 渲染起止点标记（合并重复车站，显示车站/机场名）
+  // 渲染城市圆圈 + 站场实心点 + 中国边界
   function renderMarkers() {
-    const cityMap = {};
+    const stationMap = {};
+    const cityTotal = {};
+    const cityStations = {}; // city -> [{lat, lng, station}]
 
     tickets.forEach(function (ticket) {
       [ticket.departure, ticket.arrival].forEach(function (loc) {
         const key = loc.lat + ',' + loc.lng;
-        if (!cityMap[key]) {
-          cityMap[key] = { city: loc.city, lat: parseFloat(loc.lat), lng: parseFloat(loc.lng), count: 0, stations: new Set() };
+        if (!stationMap[key]) {
+          stationMap[key] = { city: loc.city, lat: parseFloat(loc.lat), lng: parseFloat(loc.lng), count: 0, stations: new Set() };
         }
-        cityMap[key].count++;
-        if (loc.station) cityMap[key].stations.add(loc.station);
+        stationMap[key].count++;
+        if (loc.station) stationMap[key].stations.add(loc.station);
+        cityTotal[loc.city] = (cityTotal[loc.city] || 0) + 1;
+        if (!cityStations[loc.city]) cityStations[loc.city] = [];
+        cityStations[loc.city].push({ lat: parseFloat(loc.lat), lng: parseFloat(loc.lng), station: loc.station });
       });
     });
 
-    Object.values(cityMap).forEach(function (city) {
-      const size = Math.min(16, 8 + city.count * 2);
-      const marker = L.circleMarker([city.lat, city.lng], {
-        radius: size,
-        fillColor: '#10b981',
-        fillOpacity: 0.8,
-        color: '#fff',
-        weight: 2,
+    var maxCityCount = 0;
+    Object.values(cityTotal).forEach(function (c) { if (c > maxCityCount) maxCityCount = c; });
+
+    function cityColor(count) {
+      var ratio = maxCityCount > 1 ? (count - 1) / (maxCityCount - 1) : 0;
+      var hue = 200 - ratio * 200;
+      return 'hsl(' + Math.round(hue) + ', 70%, 55%)';
+    }
+
+    // Haversine distance in km
+    function haversineKm(lat1, lng1, lat2, lng2) {
+      var R = 6371;
+      var dLat = (lat2 - lat1) * Math.PI / 180;
+      var dLng = (lng2 - lng1) * Math.PI / 180;
+      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    // 每座城市：计算质心 + 覆盖半径
+    Object.keys(cityStations).forEach(function (city) {
+      var stations = cityStations[city];
+      // 质心
+      var sumLat = 0, sumLng = 0;
+      stations.forEach(function (s) { sumLat += s.lat; sumLng += s.lng; });
+      var cLat = sumLat / stations.length;
+      var cLng = sumLng / stations.length;
+
+      // 最大距离 + 15km padding
+      var maxDist = 0;
+      stations.forEach(function (s) {
+        var d = haversineKm(cLat, cLng, s.lat, s.lng);
+        if (d > maxDist) maxDist = d;
+      });
+      var radiusKm = maxDist + 15;
+
+      // 像素换算（粗略：1° ≈ 111km 在纬度方向上）
+      var radiusPx = radiusKm * 1000 / (111320 * Math.cos(cLat * Math.PI / 180));
+      // Leaflet 的 radius 是像素，在 zoom level 需要换算。用 circle 而非 circleMarker 可以用米作单位
+      var color = cityColor(cityTotal[city] || 1);
+
+      // 城市空心圆（用 circle 以米为单位）
+      L.circle([cLat, cLng], {
+        radius: radiusKm * 1000,
+        color: color,
+        weight: 1.5,
+        fill: false,
+        opacity: 0.6,
+        dashArray: '4 3'
       }).addTo(map);
 
-      var tooltip = '<strong>' + city.city + '</strong>';
-      if (city.stations.size > 0) {
-        tooltip += '<br><small>' + Array.from(city.stations).join(' · ') + '</small>';
-      }
-      var tripLabel = window.travelI18n ? window.travelI18n.t('trips') : 'trips';
-      tooltip += '<br>' + city.count + ' ' + tripLabel;
-      marker.bindTooltip(tooltip, { direction: 'top' });
+      // 城市名标签
+      L.circleMarker([cLat, cLng], {
+        radius: 1,
+        fill: false,
+        color: 'transparent',
+        weight: 0
+      }).bindTooltip('<strong>' + city + '</strong><br>' + cityTotal[city] + ' ' + (window.travelI18n ? window.travelI18n.t('trips') : 'trips'), { direction: 'top', permanent: false }).addTo(map);
     });
+
+    // 各站场实心点
+    Object.values(stationMap).forEach(function (station) {
+      var color = cityColor(cityTotal[station.city] || 1);
+      L.circleMarker([station.lat, station.lng], {
+        radius: 5,
+        fillColor: color,
+        fillOpacity: 0.9,
+        color: '#fff',
+        weight: 1.5,
+      }).addTo(map).bindTooltip(station.station + '', { direction: 'top' });
+    });
+
+    // 中国省级行政区描边（本地 GeoJSON，异步加载不阻塞渲染）
+    // 外国国界（1px/50%）
+    fetch('/data/world-countries.json')
+      .then(function (r) { return r.json(); })
+      .then(function (topo) {
+        if (typeof topojson === 'undefined') return;
+        L.geoJSON(topojson.feature(topo, topo.objects.countries), {
+          style: { color: '#bbb', weight: 1, fill: false, opacity: 0.5 }
+        }).addTo(map);
+      })
+      .catch(function () {});
+    // 中国国界（2px/50%）
+    fetch('/data/china-border.json')
+      .then(function (r) { return r.json(); })
+      .then(function (geo) {
+        L.geoJSON(geo, {
+          style: { color: '#999', weight: 2, fill: false, opacity: 0.5 }
+        }).addTo(map);
+      })
+      .catch(function () {});
+    // 中国省界（1px/50%）
+    fetch('/data/china-provinces.json')
+      .then(function (r) { return r.json(); })
+      .then(function (geo) {
+        L.geoJSON(geo, {
+          style: { color: '#bbb', weight: 1, fill: false, opacity: 0.5 }
+        }).addTo(map);
+      })
+      .catch(function () {});
   }
 
   // 画册卡片高亮
@@ -229,7 +318,7 @@
 
   renderMarkers();
 
-  // 初始视野适配（仅一次，之后静态）
+  // 自适应视野：包含所有出发/到达城市
   if (tickets.length > 0) {
     var allPoints = [];
     tickets.forEach(function (t) {
@@ -237,9 +326,8 @@
       allPoints.push([parseFloat(t.arrival.lat), parseFloat(t.arrival.lng)]);
     });
     map.fitBounds(L.latLngBounds(allPoints), { padding: [40, 40] });
-    // fitBounds 后立刻禁用拖拽（它会短暂启用）
-    map.dragging.disable();
   }
+  map.dragging.disable();
 
   // 统计面板
   function computeStats() {

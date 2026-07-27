@@ -94,6 +94,17 @@
     </div>
   </section>
 
+  <!-- 文件夹模态框 -->
+  <div class="folder-overlay" id="folder-overlay">
+    <div class="folder-modal" id="folder-modal">
+      <div class="folder-header">
+        <span id="folder-route-title"></span>
+        <button class="folder-close" id="folder-close">&times;</button>
+      </div>
+      <div class="folder-body" id="folder-body"></div>
+    </div>
+  </div>
+
   <!-- Data injection -->
   <script id="ticket-data" type="application/json">{{ $tickets | jsonify | safeJS }}</script>
 </div>

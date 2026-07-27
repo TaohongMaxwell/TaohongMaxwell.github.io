@@ -23,12 +23,18 @@
   const routeGroups = { flight: [], train: [] };
   const markerGroups = {};
 
-  // 初始化地图
+  // 初始化地图（静态模式：禁用所有交互）
   const map = L.map('travel-map', {
     center: [33, 113],
     zoom: 5,
-    scrollWheelZoom: true,
+    scrollWheelZoom: false,
+    dragging: false,
+    doubleClickZoom: false,
+    touchZoom: false,
+    zoomControl: false,
     attributionControl: false,
+    boxZoom: false,
+    keyboard: false,
   });
 
   // OSM 瓦片（暗色模式通过 CSS filter 反色实现）
@@ -222,15 +228,16 @@
 
   renderMarkers();
 
-  // 自适应视野
+  // 初始视野适配（仅一次，之后静态）
   if (tickets.length > 0) {
-    const allPoints = [];
+    var allPoints = [];
     tickets.forEach(function (t) {
       allPoints.push([parseFloat(t.departure.lat), parseFloat(t.departure.lng)]);
       allPoints.push([parseFloat(t.arrival.lat), parseFloat(t.arrival.lng)]);
     });
-    const bounds = L.latLngBounds(allPoints);
-    map.fitBounds(bounds, { padding: [30, 30] });
+    map.fitBounds(L.latLngBounds(allPoints), { padding: [40, 40] });
+    // fitBounds 后立刻禁用拖拽（它会短暂启用）
+    map.dragging.disable();
   }
 
   // 统计面板

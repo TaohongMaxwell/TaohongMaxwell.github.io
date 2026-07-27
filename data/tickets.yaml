@@ -10,6 +10,7 @@ tickets:
       code: "SHA"
       lat: 31.1979
       lng: 121.3363
+      country: "China"
       time: "08:00"
     arrival:
       city: "北京"
@@ -17,6 +18,7 @@ tickets:
       code: "PEK"
       lat: 40.0799
       lng: 116.6031
+      country: "China"
       time: "10:30"
     class: "经济舱"
     seat: "32A"
@@ -37,6 +39,7 @@ tickets:
       code: "IZQ"
       lat: 22.9906
       lng: 113.2688
+      country: "China"
       time: "09:30"
     arrival:
       city: "深圳"
@@ -44,6 +47,7 @@ tickets:
       code: "SZQ"
       lat: 22.6089
       lng: 114.0299
+      country: "China"
       time: "10:06"
     class: "二等座"
     seat: "05车12A号"
@@ -64,6 +68,7 @@ tickets:
       code: "CAN"
       lat: 23.3925
       lng: 113.2988
+      country: "China"
       time: "14:20"
     arrival:
       city: "上海"
@@ -71,6 +76,7 @@ tickets:
       code: "SHA"
       lat: 31.1979
       lng: 121.3363
+      country: "China"
       time: "16:45"
     class: "经济舱"
     seat: "18F"
@@ -91,6 +97,7 @@ tickets:
       code: "BXP"
       lat: 39.8949
       lng: 116.3221
+      country: "China"
       time: "07:00"
     arrival:
       city: "西安"
@@ -98,6 +105,7 @@ tickets:
       code: "XAB"
       lat: 34.3767
       lng: 108.9343
+      country: "China"
       time: "12:21"
     class: "一等座"
     seat: "03车08A号"
@@ -106,3 +114,32 @@ tickets:
     notes: "国庆假期旅行"
     route: []
     routeColor: "#8b5cf6"
+
+  - id: "2025-02-guangzhou-hongkong"
+    date: "2025-02-08"
+    type: "train"
+    operator: "中国铁路广州局"
+    number: "G6503"
+    departure:
+      city: "广州"
+      station: "广州南站"
+      code: "IZQ"
+      lat: 22.9906
+      lng: 113.2688
+      country: "China"
+      time: "08:15"
+    arrival:
+      city: "香港"
+      station: "香港西九龙站"
+      code: "XJA"
+      lat: 22.3040
+      lng: 114.1647
+      country: "Hong Kong (China)"
+      time: "09:12"
+    class: "二等座"
+    seat: "02车15F号"
+    price: 215
+    image: ""
+    notes: "高铁直达西九龙"
+    route: []
+    routeColor: "#ec4899"

@@ -210,6 +210,54 @@
     map.fitBounds(bounds, { padding: [30, 30] });
   }
 
+  // 统计面板
+  function computeStats() {
+    const uniqueCities = new Set();
+    const uniqueCountries = new Set();
+    let totalDistance = 0;
+    let totalSpent = 0;
+
+    tickets.forEach(function (t) {
+      uniqueCities.add(t.departure.city);
+      uniqueCities.add(t.arrival.city);
+      if (t.departure.country) uniqueCountries.add(t.departure.country);
+      if (t.arrival.country) uniqueCountries.add(t.arrival.country);
+      if (t.price) totalSpent += t.price;
+
+      // Haversine distance (km)
+      const R = 6371;
+      const dLat = (t.arrival.lat - t.departure.lat) * Math.PI / 180;
+      const dLng = (t.arrival.lng - t.departure.lng) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(t.departure.lat * Math.PI / 180) * Math.cos(t.arrival.lat * Math.PI / 180) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      totalDistance += R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    });
+
+    return {
+      trips: tickets.length,
+      cities: uniqueCities.size,
+      countries: uniqueCountries.size,
+      distance: Math.round(totalDistance),
+      spent: totalSpent,
+    };
+  }
+
+  function renderStats() {
+    const stats = computeStats();
+    const container = document.getElementById('travel-stats');
+    if (!container) return;
+
+    const values = container.querySelectorAll('.stat-value');
+    values[0].textContent = stats.trips;
+    values[1].textContent = stats.countries;
+    values[2].textContent = stats.cities;
+    values[3].textContent = stats.distance.toLocaleString();
+    values[4].textContent = '¥' + stats.spent.toLocaleString();
+  }
+
+  renderStats();
+
   // 暴露接口给 gallery 模块
   window.travelMap = {
     highlightTicket: highlightTicketCard,

@@ -1,68 +1,98 @@
 /**
  * 旅行票根 — 画册模块
- * 处理卡片筛选、地图联动、medium-zoom 集成
+ * 处理双层筛选（类型 + 路线）、地图联动、medium-zoom
  */
 (function () {
   'use strict';
 
-  const galleryGrid = document.querySelector('.gallery-grid');
+  var galleryGrid = document.querySelector('.gallery-grid');
   if (!galleryGrid) return;
 
-  const cards = Array.from(galleryGrid.querySelectorAll('.ticket-card'));
+  var cards = Array.from(galleryGrid.querySelectorAll('.ticket-card'));
 
-  // 筛选按钮
-  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-  filterBtns.forEach(function (btn) {
+  // --- 路线筛选按钮生成 ---
+  var routeFreq = {};
+  cards.forEach(function (c) {
+    var r = c.getAttribute('data-route');
+    routeFreq[r] = (routeFreq[r] || 0) + 1;
+  });
+
+  // 按频率降序排列路线
+  var sortedRoutes = Object.keys(routeFreq).sort(function (a, b) {
+    return routeFreq[b] - routeFreq[a];
+  });
+
+  var routeFilters = document.getElementById('route-filters');
+  sortedRoutes.forEach(function (r) {
+    var btn = document.createElement('button');
+    btn.className = 'gallery-filter-btn';
+    btn.setAttribute('data-route', r);
+    // 格式化显示：广州-上海 → 广州→上海 3
+    var label = r.replace(/-/g, '→') + ' ' + routeFreq[r];
+    btn.textContent = label;
+    routeFilters.appendChild(btn);
+  });
+
+  // --- 组合筛选状态 ---
+  var typeFilter = 'all';
+  var routeFilter = 'all';
+
+  function applyFilters() {
+    cards.forEach(function (card) {
+      var type = card.getAttribute('data-type');
+      var route = card.getAttribute('data-route');
+      var typeMatch = typeFilter === 'all' || type === typeFilter;
+      var routeMatch = routeFilter === 'all' || route === routeFilter;
+      card.closest('.ticket-stack') || card; // 兼容未来叠层
+      card.style.display = (typeMatch && routeMatch) ? '' : 'none';
+    });
+  }
+
+  // --- 第一行：类型筛选 ---
+  var typeBtns = document.querySelectorAll('.gallery-filters .gallery-filter-btn');
+  typeBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      typeBtns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
-
-      const filter = btn.getAttribute('data-filter');
-      cards.forEach(function (card) {
-        if (filter === 'all' || card.getAttribute('data-type') === filter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      typeFilter = btn.getAttribute('data-filter');
+      applyFilters();
     });
   });
 
-  // 卡片点击 → 定位到地图对应路线
+  // --- 第二行：路线筛选 ---
+  var routeBtns = routeFilters.querySelectorAll('.gallery-filter-btn');
+  routeBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      routeBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      routeFilter = btn.getAttribute('data-route');
+      applyFilters();
+    });
+  });
+
+  // --- 卡片点击 → 飞地图 ---
   cards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      const ticketId = card.getAttribute('data-id');
+    card.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var ticketId = card.getAttribute('data-id');
       if (window.travelMap && window.travelMap.highlightTicket) {
         window.travelMap.highlightTicket(ticketId);
-
-        // 飞往对应路线的视野
-        const depLat = parseFloat(card.getAttribute('data-departure-lat'));
-        const depLng = parseFloat(card.getAttribute('data-departure-lng'));
-        const arrLat = parseFloat(card.getAttribute('data-arrival-lat'));
-        const arrLng = parseFloat(card.getAttribute('data-arrival-lng'));
-
+        var depLat = parseFloat(card.getAttribute('data-departure-lat'));
+        var depLng = parseFloat(card.getAttribute('data-departure-lng'));
+        var arrLat = parseFloat(card.getAttribute('data-arrival-lat'));
+        var arrLng = parseFloat(card.getAttribute('data-arrival-lng'));
         if (window.travelMap.map && !isNaN(depLat)) {
-          const bounds = L.latLngBounds([[depLat, depLng], [arrLat, arrLng]]);
-          window.travelMap.map.fitBounds(bounds, { padding: [50, 50], maxZoom: 8 });
+          window.travelMap.map.fitBounds(L.latLngBounds([[depLat, depLng], [arrLat, arrLng]]), { padding: [50, 50], maxZoom: 8 });
         }
       }
-
-      // 滚动地图到视野
-      const mapEl = document.getElementById('travel-map');
-      if (mapEl) {
-        mapEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      var mapEl = document.getElementById('travel-map');
+      if (mapEl) mapEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  // 对新增的图片启用 medium-zoom
+  // --- medium-zoom ---
   if (typeof mediumZoom !== 'undefined') {
-    const ticketImages = document.querySelectorAll('.ticket-card-image img');
-    if (ticketImages.length > 0) {
-      mediumZoom(ticketImages, {
-        margin: 1,
-        background: 'rgba(0, 0, 0, 0.8)',
-      });
-    }
+    var imgs = document.querySelectorAll('.ticket-card-image img');
+    if (imgs.length) mediumZoom(imgs, { margin: 1, background: 'rgba(0, 0, 0, 0.8)' });
   }
 })();

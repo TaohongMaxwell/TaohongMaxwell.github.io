@@ -89,27 +89,30 @@
   }
 
   // 渲染单条路线
-  function renderRoute(ticket, index) {
+  function renderRoute(ticket, index, freq) {
+    freq = freq || 1;
     const fromLat = parseFloat(ticket.departure.lat);
     const fromLng = parseFloat(ticket.departure.lng);
     const toLat = parseFloat(ticket.arrival.lat);
     const toLng = parseFloat(ticket.arrival.lng);
     const routeColor = ticket.routeColor || (ticket.type === 'flight' ? '#3b82f6' : '#10b981');
 
+    // 路线粗细按频率：1次=2.5px，2次=4px，3次=5.5px，4+次=7px
+    var weight = 2.5 + (freq - 1) * 2;
+    if (weight > 7) weight = 7;
+
     let polylinePoints;
 
     if (ticket.type === 'train' && ticket.route && ticket.route.length > 1) {
-      // 铁路：使用预计算的路线
       polylinePoints = ticket.route;
     } else {
-      // 机票 / 无铁路数据：大圆航线
       polylinePoints = getGreatCirclePoints(fromLat, fromLng, toLat, toLng);
     }
 
     const polyline = L.polyline(polylinePoints, {
       color: routeColor,
-      weight: 2.5,
-      opacity: 0.7,
+      weight: weight,
+      opacity: Math.min(0.85, 0.5 + freq * 0.1),
       dashArray: ticket.type === 'train' ? '8 4' : null,
       ticketId: ticket.id,
     }).addTo(map);
@@ -117,7 +120,7 @@
     polyline.bindTooltip(
       '<div class="travel-tooltip">' +
       '<strong>' + ticket.departure.city + ' → ' + ticket.arrival.city + '</strong>' +
-      ticket.number + ' · ' + ticket.date +
+      (freq > 1 ? freq + ' trips · ' : '') + ticket.number + ' · ' + ticket.date +
       '</div>',
       { sticky: true }
     );
@@ -200,9 +203,21 @@
     }, this);
   });
 
-  // 渲染全部票根
+  // 路线频率：同出发→到达的票根数 → 决定线粗
+  var routeFreq = {};
+  tickets.forEach(function (t) {
+    var key = t.departure.city + '→' + t.arrival.city;
+    routeFreq[key] = (routeFreq[key] || 0) + 1;
+  });
+
+  // 渲染全部票根（地图上只画一条路线，取最高频率）
+  var drawnRoutes = {};
   tickets.forEach(function (ticket, index) {
-    renderRoute(ticket, index);
+    var key = ticket.departure.city + '→' + ticket.arrival.city;
+    if (!drawnRoutes[key]) {
+      drawnRoutes[key] = true;
+      renderRoute(ticket, index, routeFreq[key]);
+    }
   });
 
   renderMarkers();

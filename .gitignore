@@ -36,3 +36,6 @@ _docs/
 # Playwright MCP debug artifacts
 .playwright-mcp/
 travel-page-preview.png
+
+# osmnx cache (railway script)
+cache/

@@ -42,16 +42,17 @@ def build_railway_graph(bbox: dict | None = None):
 
     ox.settings.log_console = True
     ox.settings.use_cache = True
+    ox.settings.overpass_endpoint = "https://overpass.kumi.systems/api/interpreter"
+    ox.settings.overpass_rate_limit = False
 
     if bbox is None:
-        # 中国大致范围 (south, west, north, east)
-        bbox = (18.0, 73.0, 54.0, 135.0)
+        # 中国大致范围 (left, bottom, right, top)
+        bbox = (73.0, 18.0, 135.0, 54.0)
 
     print(f"正在下载铁路网络 (bbox={bbox}) ...")
     # 下载 railway=rail 的边（主干铁路）
     G = ox.graph_from_bbox(
-        north=bbox[2], south=bbox[0],
-        east=bbox[3], west=bbox[1],
+        bbox=bbox,
         custom_filter='["railway"="rail"]["service"!="spur"]["service"!="yard"]["service"!="siding"]',
         simplify=False,
         retain_all=False,
@@ -116,32 +117,28 @@ def main():
 
     print(f"需要计算 {len(to_process)} 条铁路路径")
 
-    # 根据待处理票根动态计算 bbox（扩大 2 度）
-    lats = []
-    lngs = []
-    for t in to_process:
-        lats.append(t["departure"]["lat"])
-        lats.append(t["arrival"]["lat"])
-        lngs.append(t["departure"]["lng"])
-        lngs.append(t["arrival"]["lng"])
-
-    margin = 2.0
-    bbox = (
-        min(lats) - margin, min(lngs) - margin,
-        max(lats) + margin, max(lngs) + margin,
-    )
-
-    try:
-        G = build_railway_graph(bbox)
-    except ImportError:
-        print("请先安装依赖：pip install osmnx pyyaml")
-        print("替代方案：手动从 Overpass Turbo 导出铁路线 GeoJSON，"
-              "放入 static/data/railways/ 目录，前端会加载渲染。")
-        sys.exit(1)
-
     updated = 0
     for t in to_process:
         print(f"  → {t['departure']['city']} → {t['arrival']['city']} ({t['number']})")
+
+        # 为每条路线单独计算 bbox（扩大 2 度）
+        margin = 2.0
+        lats = [t["departure"]["lat"], t["arrival"]["lat"]]
+        lngs = [t["departure"]["lng"], t["arrival"]["lng"]]
+        bbox = (
+            min(lngs) - margin, min(lats) - margin,
+            max(lngs) + margin, max(lats) + margin,
+        )
+
+        try:
+            G = build_railway_graph(bbox)
+        except ImportError:
+            print("请先安装依赖：pip install osmnx pyyaml")
+            sys.exit(1)
+        except Exception as e:
+            print(f"  ⚠ 下载铁路网络失败: {e}")
+            continue
+
         coords = find_rail_route(
             G,
             t["departure"]["lat"], t["departure"]["lng"],

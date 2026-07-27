@@ -37,11 +37,15 @@
       <button class="gallery-filter-btn" data-filter="flight">✈ Flights</button>
       <button class="gallery-filter-btn" data-filter="train">🚄 Trains</button>
     </div>
+    <div class="gallery-route-filters" id="route-filters">
+      <button class="gallery-filter-btn active" data-route="all">All Routes</button>
+    </div>
     <div class="gallery-grid">
       {{ range $index, $ticket := $tickets }}
       <div class="ticket-card"
            data-id="{{ $ticket.id }}"
            data-type="{{ $ticket.type }}"
+           data-route="{{ $ticket.departure.city }}-{{ $ticket.arrival.city }}"
            data-index="{{ $index }}"
            data-departure-lat="{{ $ticket.departure.lat }}"
            data-departure-lng="{{ $ticket.departure.lng }}"

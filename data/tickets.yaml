@@ -1,6 +1,152 @@
 tickets:
-  - id: "2024-01-shanghai-beijing"
-    date: "2024-01-15"
+  # === 飞机 ×10 ===
+  - id: "2025-11-shanghai-tokyo"
+    date: "2025-11-20"
+    type: "flight"
+    operator: "中国东方航空"
+    number: "MU523"
+    departure:
+      city: "上海"
+      station: "上海浦东国际机场"
+      code: "PVG"
+      lat: 31.1443
+      lng: 121.8083
+      country: "China"
+      time: "09:15"
+    arrival:
+      city: "东京"
+      station: "东京成田国际机场"
+      code: "NRT"
+      lat: 35.7720
+      lng: 140.3929
+      country: "Japan"
+      time: "12:30"
+    class: "经济舱"
+    seat: "45K"
+    price: 2850
+    image: ""
+    notes: "东京出差"
+    route: []
+    routeColor: "#3b82f6"
+
+  - id: "2025-09-guangzhou-shanghai"
+    date: "2025-09-15"
+    type: "flight"
+    operator: "中国南方航空"
+    number: "CZ3580"
+    departure:
+      city: "广州"
+      station: "广州白云国际机场"
+      code: "CAN"
+      lat: 23.3925
+      lng: 113.2988
+      country: "China"
+      time: "18:40"
+    arrival:
+      city: "上海"
+      station: "上海虹桥国际机场"
+      code: "SHA"
+      lat: 31.1979
+      lng: 121.3363
+      country: "China"
+      time: "21:05"
+    class: "经济舱"
+    seat: "22A"
+    price: 1050
+    image: ""
+    notes: "国庆前出差"
+    route: []
+    routeColor: "#f59e0b"
+
+  - id: "2025-09-beijing-guangzhou"
+    date: "2025-09-02"
+    type: "flight"
+    operator: "中国国际航空"
+    number: "CA1831"
+    departure:
+      city: "北京"
+      station: "北京首都国际机场"
+      code: "PEK"
+      lat: 40.0799
+      lng: 116.6031
+      country: "China"
+      time: "07:30"
+    arrival:
+      city: "广州"
+      station: "广州白云国际机场"
+      code: "CAN"
+      lat: 23.3925
+      lng: 113.2988
+      country: "China"
+      time: "10:55"
+    class: "商务舱"
+    seat: "2A"
+    price: 3280
+    image: ""
+    notes: ""
+    route: []
+    routeColor: "#ef4444"
+
+  - id: "2025-07-shanghai-sanya"
+    date: "2025-07-20"
+    type: "flight"
+    operator: "海南航空"
+    number: "HU7896"
+    departure:
+      city: "上海"
+      station: "上海浦东国际机场"
+      code: "PVG"
+      lat: 31.1443
+      lng: 121.8083
+      country: "China"
+      time: "06:50"
+    arrival:
+      city: "三亚"
+      station: "三亚凤凰国际机场"
+      code: "SYX"
+      lat: 18.3029
+      lng: 109.4122
+      country: "China"
+      time: "10:20"
+    class: "经济舱"
+    seat: "15C"
+    price: 1680
+    image: ""
+    notes: "暑假家庭旅行"
+    route: []
+    routeColor: "#06b6d4"
+
+  - id: "2025-05-guangzhou-shanghai-2"
+    date: "2025-05-08"
+    type: "flight"
+    operator: "中国南方航空"
+    number: "CZ3523"
+    departure:
+      city: "广州"
+      station: "广州白云国际机场"
+      code: "CAN"
+      lat: 23.3925
+      lng: 113.2988
+      country: "China"
+      time: "14:20"
+    arrival:
+      city: "上海"
+      station: "上海虹桥国际机场"
+      code: "SHA"
+      lat: 31.1979
+      lng: 121.3363
+      country: "China"
+      time: "16:45"
+    class: "经济舱"
+    seat: "18F"
+    price: 980
+    image: ""
+    notes: "转机去东京"
+    route: []
+    routeColor: "#f59e0b"
+
+  - id: "2025-04-shanghai-beijing"
+    date: "2025-04-10"
     type: "flight"
     operator: "中国东方航空"
     number: "MU5101"
@@ -24,12 +170,187 @@ tickets:
     seat: "32A"
     price: 1280
     image: ""
-    notes: "出差参加技术会议"
+    notes: "技术会议"
     route: []
     routeColor: "#3b82f6"
 
-  - id: "2024-03-guangzhou-shenzhen"
-    date: "2024-03-22"
+  - id: "2025-01-guangzhou-chengdu"
+    date: "2025-01-18"
+    type: "flight"
+    operator: "四川航空"
+    number: "3U8732"
+    departure:
+      city: "广州"
+      station: "广州白云国际机场"
+      code: "CAN"
+      lat: 23.3925
+      lng: 113.2988
+      country: "China"
+      time: "11:00"
+    arrival:
+      city: "成都"
+      station: "成都双流国际机场"
+      code: "CTU"
+      lat: 30.5785
+      lng: 103.9468
+      country: "China"
+      time: "13:30"
+    class: "经济舱"
+    seat: "28D"
+    price: 860
+    image: ""
+    notes: ""
+    route: []
+    routeColor: "#8b5cf6"
+
+  - id: "2024-12-beijing-kunming"
+    date: "2024-12-25"
+    type: "flight"
+    operator: "中国东方航空"
+    number: "MU5712"
+    departure:
+      city: "北京"
+      station: "北京大兴国际机场"
+      code: "PKX"
+      lat: 39.5098
+      lng: 116.4105
+      country: "China"
+      time: "08:45"
+    arrival:
+      city: "昆明"
+      station: "昆明长水国际机场"
+      code: "KMG"
+      lat: 25.1019
+      lng: 102.9291
+      country: "China"
+      time: "12:15"
+    class: "经济舱"
+    seat: "10A"
+    price: 1520
+    image: ""
+    notes: "圣诞旅行"
+    route: []
+    routeColor: "#f97316"
+
+  - id: "2024-10-shanghai-beijing-2"
+    date: "2024-10-28"
+    type: "flight"
+    operator: "中国国际航空"
+    number: "CA1502"
+    departure:
+      city: "上海"
+      station: "上海虹桥国际机场"
+      code: "SHA"
+      lat: 31.1979
+      lng: 121.3363
+      country: "China"
+      time: "16:00"
+    arrival:
+      city: "北京"
+      station: "北京首都国际机场"
+      code: "PEK"
+      lat: 40.0799
+      lng: 116.6031
+      country: "China"
+      time: "18:30"
+    class: "经济舱"
+    seat: "21F"
+    price: 1150
+    image: ""
+    notes: "周末回京"
+    route: []
+    routeColor: "#3b82f6"
+
+  - id: "2024-08-guangzhou-shanghai-3"
+    date: "2024-08-05"
+    type: "flight"
+    operator: "春秋航空"
+    number: "9C8850"
+    departure:
+      city: "广州"
+      station: "广州白云国际机场"
+      code: "CAN"
+      lat: 23.3925
+      lng: 113.2988
+      country: "China"
+      time: "22:10"
+    arrival:
+      city: "上海"
+      station: "上海浦东国际机场"
+      code: "PVG"
+      lat: 31.1443
+      lng: 121.8083
+      country: "China"
+      time: "00:35"
+    class: "经济舱"
+    seat: "8B"
+    price: 620
+    image: ""
+    notes: "红眼航班"
+    route: []
+    routeColor: "#f59e0b"
+
+  # === 火车 ×10 ===
+  - id: "2025-12-guangzhou-hongkong"
+    date: "2025-12-01"
+    type: "train"
+    operator: "中国铁路广州局"
+    number: "G6503"
+    departure:
+      city: "广州"
+      station: "广州南站"
+      code: "IZQ"
+      lat: 22.9906
+      lng: 113.2688
+      country: "China"
+      time: "08:15"
+    arrival:
+      city: "香港"
+      station: "香港西九龙站"
+      code: "XJA"
+      lat: 22.3040
+      lng: 114.1647
+      country: "Hong Kong (China)"
+      time: "09:12"
+    class: "二等座"
+    seat: "02车15F号"
+    price: 215
+    image: ""
+    notes: "高铁直达西九龙"
+    route: []
+    routeColor: "#ec4899"
+
+  - id: "2025-10-beijing-xian"
+    date: "2025-10-05"
+    type: "train"
+    operator: "中国铁路北京局"
+    number: "G87"
+    departure:
+      city: "北京"
+      station: "北京西站"
+      code: "BXP"
+      lat: 39.8949
+      lng: 116.3221
+      country: "China"
+      time: "07:00"
+    arrival:
+      city: "西安"
+      station: "西安北站"
+      code: "XAB"
+      lat: 34.3767
+      lng: 108.9343
+      country: "China"
+      time: "12:21"
+    class: "一等座"
+    seat: "03车08A号"
+    price: 515.5
+    image: ""
+    notes: "国庆旅行"
+    route: []
+    routeColor: "#8b5cf6"
+
+  - id: "2025-08-guangzhou-shenzhen"
+    date: "2025-08-14"
     type: "train"
     operator: "中国铁路广州局"
     number: "G6501"
@@ -57,69 +378,40 @@ tickets:
     route: []
     routeColor: "#10b981"
 
-  - id: "2024-06-guangzhou-shanghai"
-    date: "2024-06-10"
-    type: "flight"
-    operator: "中国南方航空"
-    number: "CZ3523"
-    departure:
-      city: "广州"
-      station: "广州白云国际机场"
-      code: "CAN"
-      lat: 23.3925
-      lng: 113.2988
-      country: "China"
-      time: "14:20"
-    arrival:
-      city: "上海"
-      station: "上海虹桥国际机场"
-      code: "SHA"
-      lat: 31.1979
-      lng: 121.3363
-      country: "China"
-      time: "16:45"
-    class: "经济舱"
-    seat: "18F"
-    price: 980
-    image: ""
-    notes: ""
-    route: []
-    routeColor: "#f59e0b"
-
-  - id: "2024-10-beijing-xian"
-    date: "2024-10-05"
-    type: "train"
-    operator: "中国铁路北京局"
-    number: "G87"
-    departure:
-      city: "北京"
-      station: "北京西站"
-      code: "BXP"
-      lat: 39.8949
-      lng: 116.3221
-      country: "China"
-      time: "07:00"
-    arrival:
-      city: "西安"
-      station: "西安北站"
-      code: "XAB"
-      lat: 34.3767
-      lng: 108.9343
-      country: "China"
-      time: "12:21"
-    class: "一等座"
-    seat: "03车08A号"
-    price: 515.5
-    image: ""
-    notes: "国庆假期旅行"
-    route: []
-    routeColor: "#8b5cf6"
-
-  - id: "2025-02-guangzhou-hongkong"
-    date: "2025-02-08"
+  - id: "2025-08-guangzhou-shenzhen-2"
+    date: "2025-08-28"
     type: "train"
     operator: "中国铁路广州局"
-    number: "G6503"
+    number: "G6527"
+    departure:
+      city: "广州"
+      station: "广州东站"
+      code: "GGQ"
+      lat: 23.1536
+      lng: 113.3195
+      country: "China"
+      time: "17:45"
+    arrival:
+      city: "深圳"
+      station: "深圳北站"
+      code: "SZQ"
+      lat: 22.6089
+      lng: 114.0299
+      country: "China"
+      time: "18:22"
+    class: "二等座"
+    seat: "08车03C号"
+    price: 74.5
+    image: ""
+    notes: "下班后出发"
+    route: []
+    routeColor: "#10b981"
+
+  - id: "2025-06-guangzhou-nanning"
+    date: "2025-06-15"
+    type: "train"
+    operator: "中国铁路南宁局"
+    number: "D3615"
     departure:
       city: "广州"
       station: "广州南站"
@@ -127,19 +419,164 @@ tickets:
       lat: 22.9906
       lng: 113.2688
       country: "China"
-      time: "08:15"
+      time: "09:10"
     arrival:
-      city: "香港"
-      station: "香港西九龙站"
-      code: "XJA"
-      lat: 22.3040
-      lng: 114.1647
-      country: "Hong Kong (China)"
-      time: "09:12"
-    class: "二等座"
-    seat: "02车15F号"
-    price: 215
+      city: "南宁"
+      station: "南宁东站"
+      code: "NFZ"
+      lat: 22.8391
+      lng: 108.4137
+      country: "China"
+      time: "12:25"
+    class: "一等座"
+    seat: "04车01F号"
+    price: 169
     image: ""
-    notes: "高铁直达西九龙"
+    notes: ""
+    route: []
+    routeColor: "#eab308"
+
+  - id: "2025-04-guangzhou-shenzhen-3"
+    date: "2025-04-05"
+    type: "train"
+    operator: "中国铁路广州局"
+    number: "G6215"
+    departure:
+      city: "广州"
+      station: "广州南站"
+      code: "IZQ"
+      lat: 22.9906
+      lng: 113.2688
+      country: "China"
+      time: "10:20"
+    arrival:
+      city: "深圳"
+      station: "深圳北站"
+      code: "SZQ"
+      lat: 22.6089
+      lng: 114.0299
+      country: "China"
+      time: "10:56"
+    class: "一等座"
+    seat: "01车02A号"
+    price: 99.5
+    image: ""
+    notes: "清明返乡"
+    route: []
+    routeColor: "#10b981"
+
+  - id: "2025-02-beijing-shanghai"
+    date: "2025-02-28"
+    type: "train"
+    operator: "中国铁路上海局"
+    number: "G1"
+    departure:
+      city: "北京"
+      station: "北京南站"
+      code: "VNP"
+      lat: 39.8650
+      lng: 116.3789
+      country: "China"
+      time: "07:00"
+    arrival:
+      city: "上海"
+      station: "上海虹桥站"
+      code: "AOH"
+      lat: 31.1959
+      lng: 121.3213
+      country: "China"
+      time: "11:29"
+    class: "商务座"
+    seat: "01车01F号"
+    price: 1748
+    image: ""
+    notes: "京沪标杆车"
     route: []
     routeColor: "#ec4899"
+
+  - id: "2025-01-shanghai-hangzhou"
+    date: "2025-01-25"
+    type: "train"
+    operator: "中国铁路上海局"
+    number: "G7315"
+    departure:
+      city: "上海"
+      station: "上海虹桥站"
+      code: "AOH"
+      lat: 31.1959
+      lng: 121.3213
+      country: "China"
+      time: "08:45"
+    arrival:
+      city: "杭州"
+      station: "杭州东站"
+      code: "XHH"
+      lat: 30.2940
+      lng: 120.2129
+      country: "China"
+      time: "09:35"
+    class: "二等座"
+    seat: "06车10B号"
+    price: 73
+    image: ""
+    notes: "周末短途游"
+    route: []
+    routeColor: "#14b8a6"
+
+  - id: "2024-11-guangzhou-changsha"
+    date: "2024-11-10"
+    type: "train"
+    operator: "中国铁路广州局"
+    number: "G6112"
+    departure:
+      city: "广州"
+      station: "广州南站"
+      code: "IZQ"
+      lat: 22.9906
+      lng: 113.2688
+      country: "China"
+      time: "07:30"
+    arrival:
+      city: "长沙"
+      station: "长沙南站"
+      code: "CSQ"
+      lat: 28.1497
+      lng: 113.0609
+      country: "China"
+      time: "10:05"
+    class: "二等座"
+    seat: "11车05D号"
+    price: 314
+    image: ""
+    notes: "橘子洲头"
+    route: []
+    routeColor: "#f43f5e"
+
+  - id: "2024-09-guangzhou-shenzhen-4"
+    date: "2024-09-01"
+    type: "train"
+    operator: "中国铁路广州局"
+    number: "G6571"
+    departure:
+      city: "广州"
+      station: "广州南站"
+      code: "IZQ"
+      lat: 22.9906
+      lng: 113.2688
+      country: "China"
+      time: "16:00"
+    arrival:
+      city: "深圳"
+      station: "深圳北站"
+      code: "SZQ"
+      lat: 22.6089
+      lng: 114.0299
+      country: "China"
+      time: "16:36"
+    class: "二等座"
+    seat: "03车07F号"
+    price: 74.5
+    image: ""
+    notes: ""
+    route: []
+    routeColor: "#10b981"

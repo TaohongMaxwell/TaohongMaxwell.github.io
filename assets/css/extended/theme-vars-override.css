@@ -1,3 +1,7 @@
+.list {
+    background: var(--theme);
+}
+
 :root {
     --gap: 24px;
     --content-gap: 24px;

@@ -110,20 +110,24 @@
   background: var(--entry);
   border: 1px solid var(--border);
   border-radius: var(--radius, 8px);
-  padding: 16px;
+  padding: 14px 10px;
   text-align: center;
 }
 
 .stat-value {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--link-color, #10b981);
+  line-height: 1.2;
 }
 
 .stat-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--secondary);
   margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 画册区域 */

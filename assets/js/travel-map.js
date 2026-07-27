@@ -284,7 +284,7 @@
     values[1].textContent = stats.countries;
     values[2].textContent = stats.cities;
     values[3].textContent = stats.distance.toLocaleString();
-    values[4].textContent = '¥' + stats.spent.toLocaleString();
+    values[4].textContent = '¥' + Math.round(stats.spent).toLocaleString();
   }
 
   renderStats();

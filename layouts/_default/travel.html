@@ -58,6 +58,10 @@
             <span class="ticket-arrow">→</span>
             <span class="ticket-city-to">{{ $ticket.arrival.city }}</span>
           </div>
+          <div class="ticket-stations">
+            <span>{{ $ticket.departure.station }}</span>
+            <span>{{ $ticket.arrival.station }}</span>
+          </div>
           <div class="ticket-info">
             <span class="ticket-date">{{ $ticket.date }}</span>
             <span class="ticket-number">{{ $ticket.number }}</span>

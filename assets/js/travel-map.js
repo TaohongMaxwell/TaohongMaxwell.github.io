@@ -129,24 +129,19 @@
     routeGroups[ticket.type].push(polyline);
   }
 
-  // 渲染起止点标记（合并重复城市）
+  // 渲染起止点标记（合并重复车站，显示车站/机场名）
   function renderMarkers() {
     const cityMap = {};
 
     tickets.forEach(function (ticket) {
-      // 收集所有涉及的城市
-      const depKey = ticket.departure.lat + ',' + ticket.departure.lng;
-      const arrKey = ticket.arrival.lat + ',' + ticket.arrival.lng;
-
-      if (!cityMap[depKey]) {
-        cityMap[depKey] = { city: ticket.departure.city, lat: parseFloat(ticket.departure.lat), lng: parseFloat(ticket.departure.lng), count: 0 };
-      }
-      cityMap[depKey].count++;
-
-      if (!cityMap[arrKey]) {
-        cityMap[arrKey] = { city: ticket.arrival.city, lat: parseFloat(ticket.arrival.lat), lng: parseFloat(ticket.arrival.lng), count: 0 };
-      }
-      cityMap[arrKey].count++;
+      [ticket.departure, ticket.arrival].forEach(function (loc) {
+        const key = loc.lat + ',' + loc.lng;
+        if (!cityMap[key]) {
+          cityMap[key] = { city: loc.city, lat: parseFloat(loc.lat), lng: parseFloat(loc.lng), count: 0, stations: new Set() };
+        }
+        cityMap[key].count++;
+        if (loc.station) cityMap[key].stations.add(loc.station);
+      });
     });
 
     Object.values(cityMap).forEach(function (city) {
@@ -159,7 +154,12 @@
         weight: 2,
       }).addTo(map);
 
-      marker.bindTooltip('<strong>' + city.city + '</strong><br>' + city.count + ' trips', { direction: 'top' });
+      var tooltip = '<strong>' + city.city + '</strong>';
+      if (city.stations.size > 0) {
+        tooltip += '<br><small>' + Array.from(city.stations).join(' · ') + '</small>';
+      }
+      tooltip += '<br>' + city.count + ' trips';
+      marker.bindTooltip(tooltip, { direction: 'top' });
     });
   }
 

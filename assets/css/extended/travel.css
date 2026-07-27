@@ -189,6 +189,21 @@
   font-size: 0.9rem;
 }
 
+.ticket-stations {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--tertiary);
+  margin-bottom: 8px;
+}
+
+.ticket-stations span {
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ticket-info {
   display: flex;
   justify-content: space-between;

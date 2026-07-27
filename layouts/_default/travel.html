@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="travel-page">
-  {{- $tickets := hugo.Data.tickets.tickets -}}
+  {{- $tickets := sort hugo.Data.tickets.tickets "date" "desc" -}}
 
   <!-- Journey Map -->
   <section class="travel-map-section">

@@ -27,11 +27,11 @@
   const map = L.map('travel-map', {
     center: [35, 105],
     zoom: 5,
-    scrollWheelZoom: false,
-    dragging: false,
-    doubleClickZoom: false,
-    touchZoom: false,
-    zoomControl: false,
+    scrollWheelZoom: true,
+    dragging: true,
+    doubleClickZoom: true,
+    touchZoom: true,
+    zoomControl: true,
     attributionControl: false,
     boxZoom: false,
     keyboard: false,
@@ -101,11 +101,8 @@
     const fromLng = parseFloat(ticket.departure.lng);
     const toLat = parseFloat(ticket.arrival.lat);
     const toLng = parseFloat(ticket.arrival.lng);
-    const routeColor = ticket.routeColor || (ticket.type === 'flight' ? '#3b82f6' : '#10b981');
-
-    // 路线粗细按频率：1次=2.5px，2次=4px，3次=5.5px，4+次=7px
-    var weight = 2.5 + (freq - 1) * 2;
-    if (weight > 7) weight = 7;
+    var routeColor = heatColor(freq, maxRouteFreq);
+    var weight = 2.5;
 
     let polylinePoints;
 
@@ -158,15 +155,6 @@
       });
     });
 
-    var maxCityCount = 0;
-    Object.values(cityTotal).forEach(function (c) { if (c > maxCityCount) maxCityCount = c; });
-
-    function cityColor(count) {
-      var ratio = maxCityCount > 1 ? (count - 1) / (maxCityCount - 1) : 0;
-      var hue = 200 - ratio * 200;
-      return 'hsl(' + Math.round(hue) + ', 70%, 55%)';
-    }
-
     // Haversine distance in km
     function haversineKm(lat1, lng1, lat2, lng2) {
       var R = 6371;
@@ -178,57 +166,65 @@
       return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     }
 
+    // 每座城市的交通方式统计
+    var cityModes = {}; // city -> { flights: n, trains: n }
+    tickets.forEach(function (t) {
+      [t.departure, t.arrival].forEach(function (loc) {
+        if (!cityModes[loc.city]) cityModes[loc.city] = { flights: 0, trains: 0 };
+        if (t.type === 'flight') cityModes[loc.city].flights++;
+        else cityModes[loc.city].trains++;
+      });
+    });
+
     // 每座城市：计算质心 + 覆盖半径
     Object.keys(cityStations).forEach(function (city) {
       var stations = cityStations[city];
-      // 质心
       var sumLat = 0, sumLng = 0;
       stations.forEach(function (s) { sumLat += s.lat; sumLng += s.lng; });
       var cLat = sumLat / stations.length;
       var cLng = sumLng / stations.length;
 
-      // 最大距离 + 15km padding
       var maxDist = 0;
       stations.forEach(function (s) {
         var d = haversineKm(cLat, cLng, s.lat, s.lng);
         if (d > maxDist) maxDist = d;
       });
       var radiusKm = maxDist + 15;
+      var color = heatColor(cityTotal[city] || 1, maxCityVisit);
+      var modes = cityModes[city] || { flights: 0, trains: 0 };
+      var stationNames = [...new Set(stations.map(function(s) { return s.station; }).filter(Boolean))];
 
-      // 像素换算（粗略：1° ≈ 111km 在纬度方向上）
-      var radiusPx = radiusKm * 1000 / (111320 * Math.cos(cLat * Math.PI / 180));
-      // Leaflet 的 radius 是像素，在 zoom level 需要换算。用 circle 而非 circleMarker 可以用米作单位
-      var color = cityColor(cityTotal[city] || 1);
+      // Tooltip: 城市名 + 飞机/火车次数 + 站场列表
+      var tooltip = '<strong>' + city + '</strong>';
+      tooltip += '<br>' + cityTotal[city] + ' trips';
+      if (modes.flights > 0) tooltip += ' · ' + modes.flights + ' flights';
+      if (modes.trains > 0) tooltip += ' · ' + modes.trains + ' trains';
+      if (stationNames.length > 0) {
+        tooltip += '<br><small>' + stationNames.join(' · ') + '</small>';
+      }
 
-      // 城市空心圆（用 circle 以米为单位）
-      L.circle([cLat, cLng], {
-        radius: radiusKm * 1000,
-        color: color,
-        weight: 1.5,
-        fill: false,
-        opacity: 0.6,
-        dashArray: '4 3'
-      }).addTo(map);
-
-      // 城市名标签
+      // 城市空心圆（固定像素大小）+ tooltip
       L.circleMarker([cLat, cLng], {
-        radius: 1,
-        fill: false,
+        radius: 5,
+        fillColor: color,
+        fillOpacity: 1,
         color: 'transparent',
         weight: 0
-      }).bindTooltip('<strong>' + city + '</strong><br>' + cityTotal[city] + ' ' + (window.travelI18n ? window.travelI18n.t('trips') : 'trips'), { direction: 'top', permanent: false }).addTo(map);
+      }).bindTooltip(tooltip, { direction: 'top' }).addTo(map);
     });
 
     // 各站场实心点
     Object.values(stationMap).forEach(function (station) {
-      var color = cityColor(cityTotal[station.city] || 1);
+      var color = heatColor(cityTotal[station.city] || 1, maxCityVisit);
       L.circleMarker([station.lat, station.lng], {
         radius: 5,
         fillColor: color,
-        fillOpacity: 0.9,
+        fillOpacity: 0,
         color: '#fff',
         weight: 1.5,
-      }).addTo(map).bindTooltip(station.station + '', { direction: 'top' });
+        opacity: 0,
+        interactive: false
+      }).addTo(map);
     });
 
     // 中国省级行政区描边（本地 GeoJSON，异步加载不阻塞渲染）
@@ -299,14 +295,37 @@
     }, this);
   });
 
-  // 路线频率：同出发→到达的票根数 → 决定线粗
+  // 路线频率 + 城市访问次数 → 统一热力标尺
   var routeFreq = {};
+  var cityVisit = {};
   tickets.forEach(function (t) {
     var key = t.departure.city + '→' + t.arrival.city;
     routeFreq[key] = (routeFreq[key] || 0) + 1;
+    cityVisit[t.departure.city] = (cityVisit[t.departure.city] || 0) + 1;
+    cityVisit[t.arrival.city] = (cityVisit[t.arrival.city] || 0) + 1;
   });
+  var globalMax = 0;
+  Object.values(routeFreq).forEach(function (f) { if (f > globalMax) globalMax = f; });
+  Object.values(cityVisit).forEach(function (f) { if (f > globalMax) globalMax = f; });
 
-  // 渲染全部票根（地图上只画一条路线，取最高频率）
+  // 统一热力色函数
+  // 通用 rainbow 热力色（各维度独立归一化）
+  function heatColor(count, max) {
+    if (max <= 1) return 'hsl(240, 85%, 50%)';
+    var ratio = (count - 1) / (max - 1);
+    var hue = 240 - ratio * 240; // 蓝240→青180→绿120→黄60→红0
+    return 'hsl(' + Math.round(hue) + ', 85%, 50%)';
+  }
+
+  // 路线最大频率
+  var maxRouteFreq = 0;
+  Object.values(routeFreq).forEach(function (f) { if (f > maxRouteFreq) maxRouteFreq = f; });
+
+  // 城市最大访问次数
+  var maxCityVisit = 0;
+  Object.values(cityVisit).forEach(function (f) { if (f > maxCityVisit) maxCityVisit = f; });
+
+  // 渲染全部票根（地图上只画一条路线）
   var drawnRoutes = {};
   tickets.forEach(function (ticket, index) {
     var key = ticket.departure.city + '→' + ticket.arrival.city;
@@ -318,16 +337,32 @@
 
   renderMarkers();
 
-  // 自适应视野：包含所有出发/到达城市
+  // 自适应视野 + 复位功能
+  var defaultView = null;
   if (tickets.length > 0) {
     var allPoints = [];
     tickets.forEach(function (t) {
       allPoints.push([parseFloat(t.departure.lat), parseFloat(t.departure.lng)]);
       allPoints.push([parseFloat(t.arrival.lat), parseFloat(t.arrival.lng)]);
     });
-    map.fitBounds(L.latLngBounds(allPoints), { padding: [40, 40] });
+    var bounds = L.latLngBounds(allPoints);
+    map.fitBounds(bounds, { padding: [40, 40] });
+    defaultView = { bounds: bounds, padding: [40, 40] };
   }
-  map.dragging.disable();
+
+  // 复位按钮
+  var resetBtn = L.control({ position: 'topright' });
+  resetBtn.onAdd = function () {
+    var div = L.DomUtil.create('div', 'map-reset-btn');
+    div.innerHTML = '&#8634;';
+    div.title = 'Reset view';
+    div.onclick = function (e) {
+      e.stopPropagation();
+      if (defaultView) map.fitBounds(defaultView.bounds, { padding: defaultView.padding });
+    };
+    return div;
+  };
+  resetBtn.addTo(map);
 
   // 统计面板
   function computeStats() {

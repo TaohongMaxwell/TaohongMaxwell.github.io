@@ -466,6 +466,24 @@ body.folder-locked {
   max-height: 180px;
 }
 
+/* 地图复位按钮 */
+.map-reset-btn {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer !important;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.map-reset-btn:hover {
+  background: #f2f2f2;
+}
+
 /* Leaflet tooltip 定制 */
 .travel-tooltip {
   font-size: 0.85rem;

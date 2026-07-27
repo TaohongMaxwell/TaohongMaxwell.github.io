@@ -2,6 +2,13 @@
    旅行票根页面样式
    ======================================== */
 
+/* 区域标题间距 */
+.travel-map-section h2,
+.travel-gallery-section h2,
+.travel-stats-section h2 {
+  margin-bottom: 16px;
+}
+
 /* 地图区域 */
 .travel-map-section {
   margin-bottom: var(--content-gap, 24px);

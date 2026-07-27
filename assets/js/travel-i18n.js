@@ -46,7 +46,7 @@
   };
 
   // 读取语言偏好（默认英文）
-  var lang = (localStorage.getItem('travel-lang') || 'en');
+  var lang = (localStorage.getItem('travel-lang') || 'zh');
   if (!translations[lang]) lang = 'en';
 
   // 翻译所有带 data-i18n 属性的元素

@@ -25,23 +25,31 @@
 
   // 初始化地图
   const map = L.map('travel-map', {
-    center: [33, 113], // 中国中部
+    center: [33, 113],
     zoom: 5,
     scrollWheelZoom: true,
-    attributionControl: true,
+    attributionControl: false,
   });
 
-  // OSM 瓦片
+  // OSM 瓦片（暗色模式通过 CSS filter 反色实现）
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 19,
   }).addTo(map);
 
-  // 可选：CartoDB 浅色底图
-  // L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-  //   maxZoom: 19,
-  // }).addTo(map);
+  // 暗色模式：对地图瓦片做反色
+  function applyMapTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      mapEl.classList.add('map-dark');
+    } else {
+      mapEl.classList.remove('map-dark');
+    }
+  }
+  applyMapTheme();
+
+  const themeObserver = new MutationObserver(applyMapTheme);
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
   // 计算大圆航线点集（球面线性插值）
   function getGreatCirclePoints(fromLat, fromLng, toLat, toLng, numPoints) {

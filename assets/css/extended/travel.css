@@ -16,6 +16,15 @@
   z-index: 1;
 }
 
+/* 暗色模式：反色 OSM 瓦片 */
+#travel-map.map-dark .leaflet-tile {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.1);
+}
+
+#travel-map.map-dark .leaflet-container {
+  background: #1a1a1a;
+}
+
 .map-legend {
   display: flex;
   gap: 16px;

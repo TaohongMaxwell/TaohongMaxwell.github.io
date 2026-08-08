@@ -2,7 +2,7 @@
 # Hugo 本身的配置
 # ~~~~~~~~~
 baseURL: "https://taohongmaxwell.github.io/" # 主站的 URL
-title: Maxwell's Site # 站点标题
+title: Hong's Site # 站点标题
 copyright: "[©2026 TaohongMaxwell](https://TaohongMaxwell.github.io/)" # 网站的版权声明，通常显示在页脚
 theme: PaperMod # 主题
 locale: zh-CN # 语言（BCP 47）
@@ -61,7 +61,7 @@ pagination:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Hong Tao's personal site — engineer, entrepreneur, and community organizer."
+  description: "Hong TAO's site — EM simulation engineer, AI practitioner, OPC Community Guangzhou host."
   author: Hong Tao # 作者名字
   defaultTheme: auto # 默认背景
   ShowShareButtons: false # 关闭分享的按钮
@@ -82,7 +82,7 @@ params:
   profileMode:
     enabled: true
     # 首页的 profile 内容
-    Title: "Time and Wind"
+    Title: "Welcome to my website"
     subtitle: "Follow the wind's guidance, and hear the wind sing."
     imageUrl: "/avatar/Venti-2.jpg" # optional
     imageTitle: "Welcome to Hong's Site!" # optional

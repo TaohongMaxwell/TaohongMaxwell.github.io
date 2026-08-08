@@ -39,3 +39,7 @@ travel-page-preview.png
 
 # osmnx cache (railway script)
 cache/
+
+# 项目规则文件（本地维护，NAS 同步，不进 git）
+CLAUDE.md
+.claude/

@@ -1,0 +1,2 @@
+{{- $isLinksPage := eq .Page.RelPermalink "/links/" }}
+<a href="{{ .Destination | safeURL }}"{{ if $isLinksPage }} target="_blank" rel="noopener"{{ end }}{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

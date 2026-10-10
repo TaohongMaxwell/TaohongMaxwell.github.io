@@ -7,13 +7,13 @@ summary: Academic information
 
 ## Profile
 
-EM simulation engineer with five-plus years of CAE application and development experience across a research institute, a Chinese CAE vendor (as team lead), and the China platinum agency of Dassault Systèmes. Specializes in electrically-large and system-level full-wave simulation, bio-electromagnetics, CAE software secondary development and automation, and AI-agent integration with industrial software. Holds 5 granted invention patents (3 as first inventor) and 2 design patents; familiar with the full patent lifecycle.
+**EM simulation engineer who makes AI work in industrial software.** Five-plus years of CAE application and development experience across a research institute, a Chinese CAE vendor (as team lead), and the China platinum agency of Dassault Systèmes. Career arc: simulation practice → secondary development and automation → AI-agent integration with industrial software. Proficient in CST secondary development and MCP-based CST automation; every AI-produced result ships with its verification path. Holds 5 granted invention patents (3 as first inventor) and 2 design patents; familiar with the full patent lifecycle.
 
 ## Experience
 
 **Senior CST Engineer — Dassault Systèmes' China platinum agency** (Apr 2024 – present)
 
-Support 50+ customers across consumer electronics, automotive, medical, telecom and research, resolve 40+ challenging technical cases, deliver five public technical webinars, and lead CST-AI initiatives including MCP servers and knowledge-base skills.
+Support 50+ customers across consumer electronics, automotive, medical, telecom and research, resolve 40+ challenging technical cases, deliver five public technical webinars, and lead CST-AI initiatives covering MCP-based automation and knowledge-base skills.
 
 **RF Simulation Engineer / Team Lead — a Chinese CAE software vendor** (Mar 2022 – Feb 2024)
 
@@ -35,7 +35,19 @@ Performed forward design of 4G-band filters with EM and multiphysics simulation 
 - **Absorbing materials**: EPP absorption and thermal effects; bow-tie / darkroom / RCS quantitative test simulation
 - **Antennas and arrays**: irregular binary subarray optimization (patented), phased arrays, antenna-environment interaction
 - **Multiphysics**: EM-thermal coupling, forward design of 4G-band filters with multiphysics simulation
-- **CAE software development**: Paiyue secondary development, CST Python API automation, CST MCP/agent, RAG knowledge base
+- **CAE software development**: Paiyue secondary development, CST Python API automation, MCP-based CST automation, RAG knowledge base
+- **Open-source AI tooling**: [PatentDigest](https://github.com/TaohongMaxwell/PatentDigest) (patent parsing as a portable agent skill), [information-clipper](https://github.com/TaohongMaxwell/information-clipper) (web clippings into a structured local knowledge base), [AGENTS-Minesweeper](https://github.com/TaohongMaxwell/AGENTS-Minesweeper) (screen-vision solver, deterministic algorithms)
+- **CST engineering knowledge skill**: a doc-retrieval skill for CST engineering knowledge (code not yet public)
+
+## Selected Case Notes
+
+**Automated simulation delivery** *(client project, anonymized; method open for discussion)*
+
+One pipeline from modeling to generated report — pre-processing (auto model creation, layout import, boundary/mesh/monitor setup), three compute semantics (as-is, parameter injection, parameter override), staged post-processing (S-parameters, surface currents, far-field captures), and a generated report per run. Shipped 8 releases in 76 days, each immediately usable. A separate test harness auto-verifies every stage — logs, status codes, timing, parameters — so reliability came from batch verification, not manual review.
+
+**Solver-selection diagnosis in bio-EM thermal simulation** *(AI-assisted workflow)*
+
+A heating model always showed a uniform temperature field against physical expectation. The setup used a classic thermal solver where fluid flow demanded conjugate heat transfer; switching the solver produced a sensible result within minutes. The takeaway is the verification loop: outputs are fully determined by inputs, and every step is traceable — model & input review against the real scenario, comparison with experience and measurement, physical intuition as a sanity gate.
 
 ## IP & Publications
 
@@ -44,9 +56,9 @@ Performed forward design of 4G-band filters with EM and multiphysics simulation 
 
 ## Talks & Content
 
-- Five public technical webinars on the company's Bilibili channel (700–2,800 views each, 2024–2025): Hybrid Solvers, Antenna Simulation Overview, Cable Studio, Array Antenna Practice, Python Automation
 - Invited talk, Medidata NEXT Shanghai (SIMULIA): "EM Simulation in Life Science Applications" (Sep 2025)
 - Invited talk, SIMULIA EM Simulation Technology Seminar: "Python for Efficient CST Simulation" (May 2025)
+- Five public technical webinars on the company's Bilibili channel (700–2,800 views each, 2024–2025): Hybrid Solvers, Antenna Simulation Overview, Cable Studio, Array Antenna Practice, Python Automation
 - Invited talk, ShanghaiTech University: "CST in Biomedical Engineering Applications" (Nov 2024)
 - Online course "3D Electromagnetic and Thermal Full-wave Simulation Practice" (DISA platform)
 - 2020 GitHub Archive Program Arctic Code Vault contributor

@@ -5,11 +5,11 @@ url: "/about/"
 summary: about
 ---
 
-I'm **Hong TAO**, an electromagnetic simulation engineer based in Guangzhou, China. I graduated from Guilin University of Electronic Technology in 2021, majoring in Electronic Science and Technology with a focus on EM fields and microwave techniques. Over the past five years I've worked at a research institute, a Chinese CAE software company, and the China platinum agency of Dassault Systèmes, on problems ranging from filter design to full-vehicle EMC, from component-level to electrically-large system-level simulation. Along the way I moved from being a software user to someone who does secondary development, automation, and AI-agent integration for simulation tools.
+I'm **Hong TAO**, an EM simulation engineer who makes AI work in industrial software — with verifiable results — based in Guangzhou, China. I graduated from Guilin University of Electronic Technology in 2021, majoring in Electronic Science and Technology with a focus on EM fields and microwave techniques. Over the past five years I've worked at a research institute, a Chinese CAE software company, and the China platinum agency of Dassault Systèmes, on problems ranging from filter design to full-vehicle EMC, from component-level to electrically-large system-level simulation. Along the way I moved from being a software user to someone who does secondary development, automation, and AI-agent integration for simulation tools.
 
 ## What I Do Now
 
-I'm currently a Senior CST Engineer at the China platinum agency of Dassault Systèmes. My work is split between technical support and making simulation tools work harder. I've served more than fifty customers and resolved over forty challenging support cases, led the company's AI-agent exploration for CST including MCP servers and knowledge-base skills, built a local knowledge base with self-hosted DeepSeek and RAG, and delivered a series of technical webinars on topics from Python automation to hybrid solvers.
+I'm currently a Senior CST Engineer at the China platinum agency of Dassault Systèmes. My work is split between technical support and making simulation tools work harder. I've served more than fifty customers and resolved over forty challenging support cases, led the company's AI-agent exploration for CST covering MCP-based automation and knowledge-base skills, built a local knowledge base with self-hosted DeepSeek and RAG, and delivered a series of technical webinars on topics from Python automation to hybrid solvers.
 
 ## Beyond the Day Job
 
